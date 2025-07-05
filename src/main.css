@@ -1,0 +1,175 @@
+:root {
+    --primary: #00ACA6;
+    --secondary: #8A3677;
+    --background: #383838;
+    --bright: #D9D9D9;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#nav {
+    background: linear-gradient(60deg, var(--secondary), var(--primary));
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}
+
+#nav #logo {
+    height: 130%;
+}
+
+#cover {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+}
+
+#cover img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#cover #overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#cover #content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    animation: showup 2s ease-in-out 0.5s forwards;
+    opacity: 0;
+}
+
+#cover #content p {
+    font-size: xx-large;
+    margin: 4px;
+}
+
+#content h1 {
+    font-size: 64px;
+    font-weight: normal;
+}
+
+#patreons {
+    width: 100vw;
+    display: flex;
+    background-color: #00ACA6;
+    height: 10vh;
+    overflow: hidden;
+}
+
+#patreons p {
+    position: absolute;
+    transform: translateY(-250%);
+    z-index: 3;
+    width: 100vw;
+    text-align: center;
+    color: white;
+}
+
+#patreons div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#carrousel {
+    animation: slide infinite 10s linear;
+}
+
+#carrousel2 {
+    transform: translateX(100%);
+    animation: slide infinite 10s linear;
+    animation-delay: 5s;
+}
+
+#patreons img {
+    max-height: 80%;
+}
+
+#statistics {
+    background-color: #D9D9D9;
+    height: fit-content;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+#statistics div * {
+    margin: 12px;
+}
+
+
+#event {
+    height: fit-content;
+    background-color: #D9D9D9;
+    animation: showup 2s ease-in-out forwards;
+    opacity: 0;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--background);
+    flex: 1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: showup 3s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes showup {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
