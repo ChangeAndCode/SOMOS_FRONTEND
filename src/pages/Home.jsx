@@ -1,10 +1,10 @@
+
 import CountUp from "../components/CountUp"
+import Nav from '../components/nav'
 
 export default function Home() {
     return <>
-        <nav id='nav'>
-            <img id='logo' src='./SOMOSac_final_blanco.png' alt='logo' />
-        </nav>
+        <Nav/>
         <section id='cover'>
             <img src='./event2024.jpg' alt='evento2024' />
             <div id='overlay'></div>

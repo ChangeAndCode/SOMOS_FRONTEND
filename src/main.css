@@ -23,14 +23,30 @@ body {
 
 #nav {
     background: linear-gradient(60deg, var(--secondary), var(--primary));
-    color: aliceblue;
+    height: 6.5vh;
+    display: flex;
+}
+
+#nav a {
+    width: 12vw;
+}
+
+#nav div {
+    height: 100%;
     display: flex;
     align-items: center;
-    height: 10vh;
+    justify-content: center;
+}
+
+#nav #links a {
+    height: 100%;
+    text-decoration: none;
+    color: #D9D9D9;
+    margin-top: 4vh;
 }
 
 #nav #logo {
-    height: 130%;
+    height: 100%;
 }
 
 #cover {
