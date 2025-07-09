@@ -23,9 +23,13 @@ export default function Nav() {
 
     <div id='links'>
         <Link to='/somos/eventos'>Eventos</Link>
-        <Link to='/somos/projectos'>Proyectos</Link>
-        <Link to='/somos/programas'>Programas</Link>
-        <Link to='/somos/transparencia'>Transparencia</Link>
+        <img src="./icons/icon1.svg" alt="" />
+        <Link to='/somos/projectos'>| Proyectos</Link>
+        <img src="./icons/icon2.svg" alt="" />
+        <Link to='/somos/programas'>| Programas</Link>
+        <img src="./icons/icon3.svg" alt="" />
+        <Link to='/somos/transparencia'>| Transparencia</Link>
+        <img src="./icons/icon4.svg" alt="" />
     </div>
 </nav>
 

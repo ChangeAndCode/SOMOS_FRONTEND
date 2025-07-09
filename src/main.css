@@ -12,13 +12,14 @@ html {
 body {
     height: 100%;
     margin: 0;
-    overflow: hidden;
+
 }
 
 #app {
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 
 #nav {
@@ -63,6 +64,7 @@ body {
     /* Centra los enlaces verticalmente */
     /* Centra los enlaces horizontalmente */
     width: 50%;
+    color: #D9D9D9
 }
 
 #nav #links a {
@@ -83,11 +85,11 @@ body {
 #cover {
     position: relative;
     width: 100vw;
-    height: 50vh;
+    height: 70vh;
     overflow: visible;
 }
 
-#cover img {
+#cover-img {
     position: absolute;
     inset: 0;
     height: 100%;
@@ -118,6 +120,40 @@ body {
     opacity: 0;
 }
 
+#cover a {
+    display: inline-flex;
+    /* Usa inline-flex para alinear el icono y el texto en una fila */
+    align-items: center;
+    /* Alinea verticalmente el texto y el icono */
+    background-color: #8A3677;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+#cover a img {
+    height: 16px;
+    /* Ajusta el tamaño del icono (ajusta según tus preferencias) */
+    width: 16px;
+    /* Ajusta el tamaño del icono (ajusta según tus preferencias) */
+    margin-left: 10px;
+    /* Añade espacio entre el texto y el icono */
+    object-fit: contain;
+    /* Asegura que el icono mantenga sus proporciones */
+}
+
+#cover a:hover {
+    background-color: #59224C;
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+
 #cover #content p {
     font-size: xx-large;
     margin: 4px;
@@ -143,6 +179,7 @@ body {
     width: 100vw;
     text-align: center;
     color: white;
+    font-size: 24px;
 }
 
 #patreons div {
@@ -169,9 +206,10 @@ body {
 
 #statistics {
     background-color: #D9D9D9;
-    height: fit-content;
+    height: 30vh;
     display: flex;
     text-align: center;
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -179,13 +217,40 @@ body {
     margin: 12px;
 }
 
+.statistic {
+    display: flex;
+}
+
 
 #event {
-    height: fit-content;
+    height: 40vh;
     background-color: #D9D9D9;
     animation: showup 2s ease-in-out forwards;
     opacity: 0;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#event div {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 2rem;
+    margin-left: auto;
+}
+
+#date {
+    text-align: end;
+}
+
+#event img {
+    margin-right: auto;
+    position: relative;
+    width: 40%;
+    max-height: 80%;
+    object-fit: contain;
 }
 
 footer {
@@ -219,4 +284,13 @@ footer {
     to {
         transform: translateX(-100%);
     }
+}
+
+.section {
+    height: 100vh;
+    background-color: #383838;
+    display: flex;
+    align-items: center;
+    color: #D9D9D9;
+    justify-content: center;
 }
