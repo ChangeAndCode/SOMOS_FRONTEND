@@ -1,7 +1,10 @@
 
 import { Link } from "react-router-dom"
-import CountUp from "../components/CountUp"
-import Nav from '../components/nav'
+import CountUp from "../../components/CountUp"
+import './Home.css'
+
+import Nav from '../../components/Nav/Nav'
+
 
 export default function Home() {
     return <>
@@ -76,16 +79,38 @@ export default function Home() {
             </div>
         </section>
 
-        <section id='event'>
-            <div>
-                <h2>Nombre del evento</h2>
-                <p>
-                    En pro del desarrollo familiar.... descripcion objetivo del evento
-                </p>
-                <p id="date">fecha de inicio: 20 de junio 2025
-En Cedefam Vallarta</p>
+        <section id='events'>
+            <h1>Hecha un vistazo a nuestras ultimas actividades</h1>
+        
+            <div className="event">
+                <img src="./taller.jpg" alt="event" />
+                <div>
+                    <p></p>
+                    <h2>7o MiFAM Canaco</h2>
+                    <p>
+                        En pro del desarrollo familiar.... descripcion objetivo del evento
+                    </p>
+                    <p id="date">fecha de inicio: 20 de junio 2025
+                    En Cedefam Vallarta</p>
+                </div>
+                
             </div>
-            <img src="./event.jpg" alt="event" />
+
+            <h1>Asiste a nuestro proximo evento!</h1>
+            <div className="event">
+                <div>
+                    <p></p>
+                    <h2>7o MiFAM Canaco</h2>
+                    <p>
+                        En pro del desarrollo familiar.... descripcion objetivo del evento
+                    </p>
+                    <p id="date">fecha de inicio: 20 de junio 2025
+                    En Cedefam Vallarta</p>
+                </div>
+                <img src="./event.jpg" alt="event" />
+            </div>
+            
+            
         </section>
 
         <footer>Contacto</footer>

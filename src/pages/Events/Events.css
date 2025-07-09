@@ -1,0 +1,25 @@
+.section {
+    height: 100vh;
+    background-color: #383838;
+    display: flex;
+    justify-content: center;
+    padding-top: 12vh;
+    gap: 6.66666%;
+}
+
+.container {
+    background-color: #D9D9D9;
+    height: fit-content;
+    min-height: 50vh;
+    min-width: 30vw;
+}
+
+.container img {
+    height: 40vh;
+    width: 30vw;
+    object-fit: cover;
+}
+
+.container h2 {
+    color: #8A3677;
+}

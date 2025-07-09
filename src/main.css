@@ -22,235 +22,50 @@ body {
     overflow: auto;
 }
 
-#nav {
-    position: absolute;
-    z-index: 4;
-    display: flex;
-    width: 100vw;
-    height: 15vh;
-    overflow: visible;
-    align-items: center;
-    /* Centra el logo y los enlaces verticalmente */
-    /* Distribuye espacio entre el logo y los enlaces */
-    padding-left: 2vw;
-    /* Para que el logo no esté pegado al borde */
-    padding-right: 2vw;
-    /* Para que los enlaces no estén pegados al borde */
-}
-
-#nav svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    /* Ignora interacciones */
-}
-
-#nav #logo {
-    height: auto;
-    /* Mantiene la proporción del logo */
-    max-height: 15vh;
-    transform: translate3d(-12%, -15%, 0)
-        /* El logo no excederá el 10% de la altura de la navbar */
-}
-
-#nav #links {
-    padding-bottom: 3%;
-    display: flex;
-    align-items: center;
-    /* Centra los enlaces verticalmente */
-    /* Centra los enlaces horizontalmente */
-    width: 50%;
-    color: #D9D9D9
-}
-
-#nav #links a {
-    text-decoration: none;
-    color: #D9D9D9;
-    margin: 0 1vw;
-    /* Espaciado entre los enlaces */
-    font-size: 1.2rem;
-    /* Tamaño de fuente de los enlaces */
-}
-
-#nav #links a:hover {
-    color: var(--primary);
-    /* Color al pasar el mouse */
-}
 
 
-#cover {
-    position: relative;
-    width: 100vw;
-    height: 70vh;
-    overflow: visible;
-}
 
-#cover-img {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-#cover #overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
-#cover #content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
+#events {
+    height: fit-content;
+    background-color: #D9D9D9;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding-left: 15%;
-    padding-right: 15%;
-    animation: showup 2s ease-in-out 0.5s forwards;
-    opacity: 0;
 }
 
-#cover a {
-    display: inline-flex;
-    /* Usa inline-flex para alinear el icono y el texto en una fila */
-    align-items: center;
-    /* Alinea verticalmente el texto y el icono */
-    background-color: #8A3677;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    margin-top: 2rem;
+#events h1 {
+    color: #8A3677;
 }
 
-#cover a img {
-    height: 16px;
-    /* Ajusta el tamaño del icono (ajusta según tus preferencias) */
-    width: 16px;
-    /* Ajusta el tamaño del icono (ajusta según tus preferencias) */
-    margin-left: 10px;
-    /* Añade espacio entre el texto y el icono */
-    object-fit: contain;
-    /* Asegura que el icono mantenga sus proporciones */
-}
-
-#cover a:hover {
-    background-color: #59224C;
-    /* Cambia el color de fondo al pasar el mouse */
-}
-
-
-#cover #content p {
-    font-size: xx-large;
-    margin: 4px;
-}
-
-#content h1 {
-    font-size: 64px;
-    font-weight: normal;
-}
-
-#patreons {
-    width: 100vw;
-    display: flex;
-    background-color: #00ACA6;
-    height: 10vh;
-    overflow: hidden;
-}
-
-#patreons p {
-    position: absolute;
-    transform: translateY(-250%);
-    z-index: 3;
-    width: 100vw;
-    text-align: center;
-    color: white;
-    font-size: 24px;
-}
-
-#patreons div {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#carrousel {
-    animation: slide infinite 10s linear;
-}
-
-#carrousel2 {
-    transform: translateX(100%);
-    animation: slide infinite 10s linear;
-    animation-delay: 5s;
-}
-
-#patreons img {
-    max-height: 80%;
-}
-
-#statistics {
-    background-color: #D9D9D9;
-    height: 30vh;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#statistics div * {
-    margin: 12px;
-}
-
-.statistic {
-    display: flex;
-}
-
-
-#event {
+.event {
     height: 40vh;
-    background-color: #D9D9D9;
-    animation: showup 2s ease-in-out forwards;
-    opacity: 0;
-    text-align: center;
     display: flex;
-    align-items: center;
-    justify-items: center;
+    justify-content: center;
+    gap: 7%;
 }
 
-#event div {
+.event div {
     display: flex;
     flex-direction: column;
     width: 40%;
-    margin-right: 2rem;
-    margin-left: auto;
 }
 
 #date {
     text-align: end;
 }
 
-#event img {
-    margin-right: auto;
+.event img {
     position: relative;
-    width: 40%;
-    max-height: 80%;
-    object-fit: contain;
+    width: fit-content;
+    max-height: 80vh;
+    max-width: 35vw;
+    object-fit: none;
+    background-color: #383838;
+
+}
+
+.section h2 {
+    color: #D9D9D9;
 }
 
 footer {
@@ -259,38 +74,5 @@ footer {
     color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    animation: showup 3s ease-in-out forwards;
-    opacity: 0;
-}
-
-@keyframes showup {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide {
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-.section {
-    height: 100vh;
-    background-color: #383838;
-    display: flex;
-    align-items: center;
-    color: #D9D9D9;
     justify-content: center;
 }
