@@ -7,19 +7,25 @@
 
 html {
     height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+    scrollbar-width: 2%;
 }
 
 body {
     height: 100%;
+    width: 100%;
     margin: 0;
 
 }
 
 #app {
+    width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow-x: hidden;
+    font-family: 'Thin';
 }
 
 
@@ -75,4 +81,80 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@font-face {
+    font-family: 'Light';
+    src: url('/fonts/Cocogoose-Pro-Light-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Light-italic';
+    src: url('/fonts/Cocogoose-Pro-Light-Italic-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Semilight';
+    src: url('/fonts/Cocogoose-Pro-Semilight-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Semilight-italic';
+    src: url('/fonts/Cocogoose-Pro-Semilight-Italic-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Thin';
+    src: url('/fonts/Cocogoose-Pro-Thin-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Thin-italic';
+    src: url('/fonts/Cocogoose-Pro-Thin-Italic-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Ultralight';
+    src: url('/fonts/Cocogoose-Pro-Ultralight-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Ultralight-italic';
+    src: url('/fonts/Cocogoose-Pro-Ultralight-Italic-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Regular';
+    src: url('/fonts/Cocogoose-Pro-Regular-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Letterpress';
+    src: url('/fonts/Cocogoose-Pro-Letterpress-Regular-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: url('/fonts/Cocogoose-Pro-Bold-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Dark';
+    src: url('/fonts/Cocogoose-Pro-Darkmode-trial.ttf');
+}
+
+
+@font-face {
+    font-family: 'Italic';
+    src: url('/fonts/Cocogoose-Pro-Italic-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Bold-italic';
+    src: url('/fonts/Cocogoose-Pro-Bold-Italic-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Dark-italic';
+    src: url('/fonts/Cocogoose-Pro-Darkmode-Italic-trial.ttf');
 }

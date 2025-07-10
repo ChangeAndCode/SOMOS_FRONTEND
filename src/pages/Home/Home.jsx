@@ -14,12 +14,11 @@ export default function Home() {
             <div id='overlay'></div>
             <div id='content'>
                 <h1>SOMOS Union</h1>
-                <p>Nuestro objetivo es subsanar el tejido social de nuestra ciudad.</p>
-                <p>Mejorando la calidad de vida de las personas.</p>
+                <p>Nuestro objetivo es subsanar el tejido social de nuestra ciudad.
+                Mejorando la calidad de vida de las personas.</p>
                 <Link to='/somos/transparencia'>Conoce mas 
                     <img src="./icons/plus.svg" alt="pluz icon" />
                 </Link>
-                
             </div>
             
         </section>
@@ -27,15 +26,19 @@ export default function Home() {
         <section id='patreons'>
             <p>Orgullosos colaboradores de:</p>
             <div id='carrousel'>
-                <img src='./coprev.jpeg' alt='coprev-logo' />
-                <img src='./red-emprende.png' alt='red-emprende-logo' />
-                <img src='./redpro.png' alt='redpro-logo' />
+                <img src='./logos/coprev.jpeg' alt='coprev-logo' />
+                <img src='./logos/somos.png' alt='somos-logo' />
+                <img src='./logos/red-emprende.png' alt='red-emprende-logo' />
+                <img src='./logos/somos.png' alt='somos-logo' />
+                <img src='./logos/redpro.png' alt='redpro-logo' />
             </div>
             { /* ---------  Duplicado  ----------*/ }
             <div id='carrousel2'>
-                <img src='./coprev.jpeg' alt='coprev-logo' />
-                <img src='./red-emprende.png' alt='red-emprende-logo' />
-                <img src='./redpro.png' alt='redpro-logo' />
+                <img src='./logos/coprev.jpeg' alt='coprev-logo' />
+                <img src='./logos/somos.png' alt='somos-logo' />
+                <img src='./logos/red-emprende.png' alt='red-emprende-logo' />
+                <img src='./logos/somos.png' alt='somos-logo' />
+                <img src='./logos/redpro.png' alt='redpro-logo' />
             </div>
         
         </section>

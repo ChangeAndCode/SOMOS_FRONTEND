@@ -26,10 +26,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
+    color: white;
     padding-left: 15%;
     padding-right: 15%;
     animation: showup 2s ease-in-out 0.5s forwards;
@@ -37,10 +38,9 @@
 }
 
 #cover a {
+    margin-top: 2%;
     display: inline-flex;
-    /* Usa inline-flex para alinear el icono y el texto en una fila */
     align-items: center;
-    /* Alinea verticalmente el texto y el icono */
     background-color: #8A3677;
     color: white;
     padding: 10px 20px;
@@ -50,42 +50,44 @@
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
-    margin-top: 2rem;
+    font-family: 'Bold-italic';
+    text-decoration: none;
 }
 
 #cover a img {
     height: 16px;
-    /* Ajusta el tamaño del icono (ajusta según tus preferencias) */
     width: 16px;
-    /* Ajusta el tamaño del icono (ajusta según tus preferencias) */
     margin-left: 10px;
-    /* Añade espacio entre el texto y el icono */
     object-fit: contain;
-    /* Asegura que el icono mantenga sus proporciones */
 }
 
 #cover a:hover {
     background-color: #59224C;
-    /* Cambia el color de fondo al pasar el mouse */
 }
 
 
 #cover #content p {
     font-size: xx-large;
-    margin: 4px;
+    font-family: 'Semilight-italic';
+    margin: 0%;
 }
 
 #content h1 {
     font-size: 64px;
     font-weight: normal;
+    font-family: 'Letterpress';
+    margin: 0%;
 }
 
 #patreons {
+    height: 10vh;
     width: 100vw;
     display: flex;
-    background-color: #00ACA6;
-    height: 10vh;
-    overflow: hidden;
+    background-color: white;
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, #00ACA6, #5DC55D, #00ACA6);
+    border-image-slice: 1;
+    overflow-x: hidden;
 }
 
 #patreons p {
@@ -96,24 +98,26 @@
     text-align: center;
     color: white;
     font-size: 24px;
+    font-family: 'Light';
 }
 
 #patreons div {
+    display: flex;
     height: 100%;
     width: 100%;
-    display: flex;
+    gap: 4rem;
     align-items: center;
     justify-content: space-between;
 }
 
 #carrousel {
-    animation: slide infinite 10s linear;
+    animation: slide infinite 24s linear;
 }
 
 #carrousel2 {
     transform: translateX(100%);
-    animation: slide infinite 10s linear;
-    animation-delay: 5s;
+    animation: slide infinite 24s linear;
+    animation-delay: 12s;
 }
 
 #patreons img {
@@ -122,7 +126,9 @@
 
 #statistics {
     background-color: #D9D9D9;
+    color: #7F7F7F;
     height: 30vh;
+    width: 100vw;
     display: flex;
     text-align: center;
     align-items: center;
@@ -131,11 +137,19 @@
 
 #statistics div * {
     margin: 12px;
+    font-family: 'Regular', Arial, Helvetica, sans-serif;
 }
 
 .statistic {
     display: flex;
+    color: #B28A39;
 }
+
+#events {
+    width: 100vw;
+    font-family: 'Semilight';
+}
+
 
 @keyframes showup {
     from {

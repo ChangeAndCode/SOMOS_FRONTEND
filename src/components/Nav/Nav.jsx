@@ -3,8 +3,7 @@ import './Nav.css'
 export default function Nav() {
     return <>
         <nav id='nav'>
-    <svg viewBox="0 0 1440 130" preserveAspectRatio="none"
-         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+            <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
         <path d="M0 0V126C412 7 1440 145 1440 0H0Z"
               fill="url(#paint0_linear_17_3)" stroke="black"/>
         <defs>
@@ -18,17 +17,21 @@ export default function Nav() {
     </svg>
 
     <Link to='/somos/'>
-        <img id='logo' src='./SOMOSac_final_blanco.png' alt='logo' />
+        <img id='logo' src='./logos/somos-dark.png' alt='logo' />
     </Link>
 
     <div id='links'>
+        {/*
         <Link to='/somos/eventos'>Eventos</Link>
         <img src="./icons/icon1.svg" alt="" />
+        */}
         <Link to='/somos/projectos'>| Proyectos</Link>
         <img src="./icons/icon2.svg" alt="" />
         <Link to='/somos/programas'>| Programas</Link>
         <img src="./icons/icon3.svg" alt="" />
-        <Link to='/somos/transparencia'>| Transparencia</Link>
+        <Link to='#'>| Resultados</Link>
+        <img src="./icons/folded-flag.svg" alt="" />
+        <Link to='/somos/transparencia'>| Testimonios</Link>
         <img src="./icons/icon4.svg" alt="" />
     </div>
 </nav>
