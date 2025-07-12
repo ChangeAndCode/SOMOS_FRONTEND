@@ -4,7 +4,7 @@ import CountUp from "../../components/CountUp"
 import './Home.css'
 
 import Nav from '../../components/Nav/Nav'
-
+import Footer from "../../components/Footer/Footer"
 
 export default function Home() {
     return <>
@@ -116,6 +116,6 @@ export default function Home() {
             
         </section>
 
-        <footer>Contacto</footer>
+        <Footer></Footer>
     </>
 }
