@@ -8,10 +8,10 @@ export default function Nav() {
               fill="url(#paint0_linear_17_3)" stroke="black"/>
         <defs>
             <linearGradient id="paint0_linear_17_3" x1="0" y1="41" x2="1440" y2="41" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#363636"/>
-                <stop offset="0.158654" stop-color="#8A3677"/>
-                <stop offset="0.774038" stop-color="#00ACA6"/>
-                <stop offset="1" stop-color="#CBCBCB"/>
+                <stop stopColor="#363636"/>
+                <stop offset="0.158654" stopColor="#8A3677"/>
+                <stop offset="0.774038" stopColor="#00ACA6"/>
+                <stop offset="1" stopColor="#CBCBCB"/>
             </linearGradient>
         </defs>
     </svg>
@@ -25,7 +25,7 @@ export default function Nav() {
         <Link to='/somos/eventos'>Eventos</Link>
         <img src="./icons/icon1.svg" alt="" />
         */}
-        <Link to='/somos/projectos'>| Proyectos</Link>
+        <Link to='/somos/proyectos'>Proyectos</Link>
         <img src="./icons/icon2.svg" alt="" />
         <Link to='/somos/programas'>| Programas</Link>
         <img src="./icons/icon3.svg" alt="" />

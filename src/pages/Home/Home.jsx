@@ -13,7 +13,7 @@ export default function Home() {
             <img id='cover-img' src='./event2024.jpg' alt='evento2024' />
             <div id='overlay'></div>
             <div id='content'>
-                <h1>SOMOS Union</h1>
+                <h1>SOMOS Unión</h1>
                 <p>Nuestro objetivo es subsanar el tejido social de nuestra ciudad.
                 Mejorando la calidad de vida de las personas.</p>
                 <Link to='/somos/transparencia'>Conoce mas 

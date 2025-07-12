@@ -1,0 +1,9 @@
+article {
+    height: fit-content;
+    color: var(--bright);
+}
+
+
+.first {
+    padding-top: 12vh;
+}

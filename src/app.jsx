@@ -6,8 +6,8 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login';
 import Events from './pages/Events/Events';
 import Transparency from './pages/Transparency';
-import Programs from './pages/Programs';
-import Projects from './pages/Projects';
+import Programs from './pages/Programs/Programs';
+import Projects from './pages/Projects/Projects';
 
 ReactDOM.createRoot(document.getElementById('app')).render(
   <React.StrictMode>
@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('app')).render(
           <Route path='/somos/' element={<Home/>}/>
           <Route path='/somos/login' element={<Login/>}></Route>
           <Route path='/somos/eventos' element={<Events/>}></Route>
-          <Route path='/somos/projectos' element={<Projects/>}></Route>
+          <Route path='/somos/proyectos' element={<Projects/>}></Route>
           <Route path='/somos/programas' element={<Programs/>}></Route>
           <Route path='/somos/transparencia' element={<Transparency/>}></Route>
         </Routes>
