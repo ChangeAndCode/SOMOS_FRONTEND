@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import './Nav.css'
+import ThemeToggleButton from '../ThemeToggleBtn'
+
+
 export default function Nav() {
     return <>
         <nav id='nav'>
@@ -34,6 +37,7 @@ export default function Nav() {
         <Link to='/somos/testimonios'>| Testimonios</Link>
         <img src="./icons/icon4.svg" alt="" />
     </div>
+    <ThemeToggleButton/>
 </nav>
 
 

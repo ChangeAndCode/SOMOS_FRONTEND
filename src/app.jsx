@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './main.css';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/Home/Home';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import Events from './pages/Events/Events';
 import Transparency from './pages/Transparency/Transparency';
 import Programs from './pages/Programs/Programs';
@@ -11,9 +11,8 @@ import Projects from './pages/Projects/Projects';
 import Testimonies from './pages/Testimonies/Testimonies';
 import Results from './pages/Results/Results';
 
-ReactDOM.createRoot(document.getElementById('app')).render(
-  <React.StrictMode>
-    <>
+export default function App() {
+  return <React.StrictMode>
       <Router>
         <Routes>
           <Route path='/somos/' element={<Home/>}/>
@@ -27,7 +26,5 @@ ReactDOM.createRoot(document.getElementById('app')).render(
           
         </Routes>
       </Router>
-      
-    </>
   </React.StrictMode>
-);
+}

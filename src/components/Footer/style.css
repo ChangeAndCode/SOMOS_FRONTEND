@@ -12,7 +12,16 @@ footer h2 {
     font-family: 'Semilight';
 }
 
+footer a {
+    text-decoration: none;
+    color: var(--bright);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 footer span {
     display: flex;
+    align-items: center;
     gap: 16px;
 }

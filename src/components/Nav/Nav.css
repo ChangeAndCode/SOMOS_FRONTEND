@@ -44,3 +44,16 @@
 #nav #links a:hover {
     color: var(--primary);
 }
+
+#nav button {
+    all: unset;
+    padding-bottom: 3%;
+    margin-left: auto;
+    margin-right: 10%;
+}
+
+#nav button svg {
+    position: relative;
+    height: 24px;
+    width: 24px;
+}
