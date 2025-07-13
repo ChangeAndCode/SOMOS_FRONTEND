@@ -2,49 +2,57 @@
     "data": [
         {
             "id": 1,
-            "title": "Projecto #1",
-            "description": "Agrega una descripcion detallada para este proyecto.",
+            "title": "Empatia para innovar",
+            "img": "masterclass-escala.jpg",
+            "description": "¿Sabías que la empatía puede ser la clave para innovar con impacto? En Escala, creemos que comprender a las personas es esencial para liderar con propósito 💙 Por eso, te invitamos a nuestra Masterclass gratuita:✨ Empatía para innovar ✨.",
             "date": "12/07/2025"
         },
         {
             "id": 2,
-            "title": "Projecto #2",
-            "description": "Agrega una descripcion detallada para este proyecto.",
+            "title": "Taller Imesun",
+            "img": "taller-imesun.jpg",
+            "description": "¡Hola emprendedor! 🤓 ¿Listo para impulsar tu negocio? 🚀 ¡Te invitamos al taller de IMESUN! 📝 diseñado para que adquieras nuevas habilidades, conectes con otros emprendedores 👥 y resuelvas tus dudas con expertos 👩🏻‍💼🧑🏻‍💼",
             "date": "12/07/2025"
         },
         {
             "id": 3,
             "title": "Projecto #3",
+            "img": "#",
             "description": "Agrega una descripcion detallada para este proyecto.",
             "date": "12/07/2025"
         },
         {
             "id": 4,
             "title": "Projecto #4",
+            "img": "#",
             "description": "Agrega una descripcion detallada para este proyecto.",
             "date": "12/07/2025"
         },
         {
             "id": 5,
             "title": "Projecto #5",
+            "img": "#",
             "description": "Agrega una descripcion detallada para este proyecto.",
             "date": "12/07/2025"
         },
         {
             "id": 6,
             "title": "Projecto #6",
+            "img": "#",
             "description": "Agrega una descripcion detallada para este proyecto.",
             "date": "12/07/2025"
         },
         {
             "id": 7,
             "title": "Projecto #7",
+            "img": "#",
             "description": "Agrega una descripcion detallada para este proyecto.",
             "date": "12/07/2025"
         },
         {
             "id": 8,
             "title": "Projecto #8",
+            "img": "#",
             "description": "Agrega una descripcion detallada para este proyecto.",
             "date": "12/07/2025"
         }

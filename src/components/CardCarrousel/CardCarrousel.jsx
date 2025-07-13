@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import Card from "./Card"
 import './style.css'
 
-export default function CardCarrousel ({array}){
+export default function CardCarrousel ({array, imgRoute}){
 
     const ref = useRef()
 
@@ -20,7 +20,7 @@ export default function CardCarrousel ({array}){
 
     return <>
         <section className="card-carrousel" ref={ref}>
-            {array.map(item => <Card item={item} key={item.id}></Card>)}
+            {array.map(item => <Card item={item} imgRoute={imgRoute} key={item.id}></Card>)}
 
         </section>
     </>

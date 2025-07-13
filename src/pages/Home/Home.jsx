@@ -14,7 +14,7 @@ export default function Home() {
             <div id='overlay'></div>
             <div id='content'>
                 <h1>SOMOS Unión</h1>
-                <p>Nuestro objetivo es subsanar el tejido social de nuestra ciudad.
+                <p>Nuestro objetivo es subsanar el tejido social de nuestra ciudad. <br />
                 Mejorando la calidad de vida de las personas.</p>
                 <Link to='/somos/transparencia'>Conoce mas 
                     <img src="./icons/plus.svg" alt="pluz icon" />
@@ -86,7 +86,7 @@ export default function Home() {
             <h1>Hecha un vistazo a nuestras ultimas actividades</h1>
         
             <div className="event">
-                <img src="./taller.jpg" alt="event" />
+                <img src="./event3.jpg" alt="event" />
                 <div>
                     <p></p>
                     <h2>7o MiFAM Canaco</h2>

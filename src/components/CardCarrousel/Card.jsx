@@ -1,9 +1,9 @@
-export default function Card ({item}) {
+export default function Card ({item, imgRoute}) {
     return <>
         <div className="card">
                 <p className="date">{item.date}</p>
                 <div className="card-img">
-                    <img src="#" alt="card-img"/>
+                    <img src={imgRoute + item.img} alt={item.title + "-img"}/>
                 </div>
                 
                 <div className="overlay">
