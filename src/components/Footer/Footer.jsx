@@ -4,7 +4,7 @@ export default function Footer() {
     return <>
         <footer>
             <div>
-                <h2>Contacto Somos Unión</h2>
+                <h2>Somos Unión contacto</h2>
                 <p>
                     Lomas del Coronel 4600, 
                     Lomas de Santa Rosa, <br/> 

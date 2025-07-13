@@ -1,0 +1,48 @@
+.first>h2:first-of-type {
+    text-align: center;
+}
+
+.testimonies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-bottom: 5rem;
+}
+
+.testimony {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimony img {
+    height: 128px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.testimony h1 {
+    font-family: 'Letterpress';
+    font-size: 32px;
+}
+
+.testimony h2 {
+    font-family: 'Regular';
+    font-size: medium;
+    text-align: center;
+    transform: translateY(-20px);
+}
+
+.testimony p {
+    font-size: small;
+}
+
+.testimony * {
+    margin: 0%;
+}

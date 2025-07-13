@@ -29,9 +29,9 @@ export default function Nav() {
         <img src="./icons/icon2.svg" alt="" />
         <Link to='/somos/programas'>| Programas</Link>
         <img src="./icons/icon3.svg" alt="" />
-        <Link to='#'>| Resultados</Link>
+        <Link to='/somos/resultados'>| Resultados</Link>
         <img src="./icons/folded-flag.svg" alt="" />
-        <Link to='/somos/transparencia'>| Testimonios</Link>
+        <Link to='/somos/testimonios'>| Testimonios</Link>
         <img src="./icons/icon4.svg" alt="" />
     </div>
 </nav>
