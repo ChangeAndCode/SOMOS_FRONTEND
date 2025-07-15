@@ -36,6 +36,7 @@ export default function Nav() {
         <img src="./icons/folded-flag.svg" alt="" />
         <Link to='/somos/testimonios'>| Testimonios</Link>
         <img src="./icons/icon4.svg" alt="" />
+        {/*<Link to='/somos/login'>Admin login</Link> */}
     </div>
     <ThemeToggleButton/>
 </nav>
