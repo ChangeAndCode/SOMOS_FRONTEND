@@ -1,6 +1,6 @@
-export default function Card ({item, imgRoute}) {
+export default function Card ({item, imgRoute, onClick}) {
     return <>
-        <div className="card">
+        <div className="card" onClick={ onClick }>
                 <p className="date">{item.date}</p>
                 <div className="card-img">
                     <img src={imgRoute + item.img} alt={item.title + "-img"}/>

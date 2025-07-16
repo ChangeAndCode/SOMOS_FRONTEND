@@ -76,3 +76,65 @@
     margin: 0%;
     font-family: 'Semilight';
 }
+
+.detailed-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background);
+    z-index: 1000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+.detailed-card h1 {
+    font-family: 'Light';
+    text-align: left;
+}
+
+.detailed-card>div {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bright);
+    flex-wrap: wrap;
+}
+
+.detailed-card div img {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 3/4;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detailed-card div section {
+    flex: 1;
+    background-color: var(--background);
+    padding: 2rem;
+    min-width: 200px;
+}
+
+.detailed-card div section h6 {
+    text-align: end;
+}
+
+@media (max-width: 768px) {
+    .detailed-card>div {
+        flex-direction: column;
+    }
+
+    .detailed-card div img {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .detailed-card div section {
+        padding: 1rem;
+    }
+}

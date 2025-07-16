@@ -1,11 +1,19 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Card from "./Card"
 import './style.css'
+import DetailedCard from "./DetailedCard"
 
 export default function CardCarrousel ({array, imgRoute}){
 
+    const [selectedCard, setSelectedCard] = useState(null)
+
+    useEffect(() => {
+        console.log(selectedCard)
+    }, [selectedCard])
+
     const ref = useRef()
 
+    // -----  Horizontal scroll event 
     useEffect(() => {
         const el = ref.current;
         const onWheel = (e) => {
@@ -20,8 +28,11 @@ export default function CardCarrousel ({array, imgRoute}){
 
     return <>
         <section className="card-carrousel" ref={ref}>
-            {array.map(item => <Card item={item} imgRoute={imgRoute} key={item.id}></Card>)}
-
+            {array.map(item => <Card key={item.id} onClick={ () => setSelectedCard(item)} item={item} imgRoute={imgRoute} ></Card>)}
+            
         </section>
+        {selectedCard && (
+                <DetailedCard card={selectedCard} onClose={() => setSelectedCard(null)} imgRoute={imgRoute}/>
+            )}
     </>
 }

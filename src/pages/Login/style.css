@@ -7,9 +7,9 @@
     justify-content: center;
 }
 
-*,
-*::before,
-*::after {
+#login-bg *,
+#login-bg *::before,
+#login-bg *::after {
     box-sizing: border-box;
 }
 

@@ -20,6 +20,14 @@ footer a {
     gap: 16px;
 }
 
+footer a:hover {
+    color: var(--gold);
+
+    svg {
+        color: var(--gold)
+    }
+}
+
 footer span {
     display: flex;
     align-items: center;
