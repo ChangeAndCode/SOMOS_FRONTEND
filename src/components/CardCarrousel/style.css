@@ -89,6 +89,9 @@
     max-height: 90vh;
     overflow: auto;
     border-radius: 8px;
+
+    /* Animación al abrir */
+    animation: fadeInZoom 0.15s ease;
 }
 
 .detailed-card h1 {
@@ -136,5 +139,17 @@
 
     .detailed-card div section {
         padding: 1rem;
+    }
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
