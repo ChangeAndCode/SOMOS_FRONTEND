@@ -1,0 +1,39 @@
+.formDropdown {
+    all: unset;
+    display: flex;
+    align-items: center;
+}
+
+.form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    padding: 1rem;
+}
+
+.form div {
+    margin-bottom: 1rem;
+    width: fit-content + 2rem;
+}
+
+.form input{
+    all: unset;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid var(--dark);
+    font-family: 'ultralight';
+}
+
+.form button {
+    all: unset;
+    background-color: var(--primary);
+    border-radius: 32px;
+    border: 2px solid var(--dark);
+    color: var(--bright);
+    font-family: 'ultralight';
+    padding: 0.5rem;
+}
