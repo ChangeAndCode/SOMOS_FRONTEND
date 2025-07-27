@@ -2,6 +2,11 @@
     all: unset;
     display: flex;
     align-items: center;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    border-radius: 5px;
+    border: 2px solid var(--dark);
+    margin-top: 0.5rem;
 }
 
 .form {
@@ -13,6 +18,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     width: fit-content;
     padding: 1rem;
+    background-color: white;
 }
 
 .form div {
@@ -23,17 +29,19 @@
 .form input{
     all: unset;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 2px solid var(--dark);
     font-family: 'ultralight';
+    
 }
 
 .form button {
     all: unset;
     background-color: var(--primary);
-    border-radius: 32px;
-    border: 2px solid var(--dark);
-    color: var(--bright);
-    font-family: 'ultralight';
+    border-radius: 5px;
+    color: white;
+    font-family: 'semilight';
     padding: 0.5rem;
+    width: calc(100% - 1.2rem);
+    text-align: center;
 }

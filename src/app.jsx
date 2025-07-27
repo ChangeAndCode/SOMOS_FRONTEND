@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Routes, Route, HashRouter } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -11,20 +11,32 @@ import Projects from './pages/Projects/Projects';
 import Testimonies from './pages/Testimonies/Testimonies';
 import Results from './pages/Results/Results';
 
+import AdminProjects from './pages/Admin/Projects'
+import AdminPrograms from './pages/Admin/Programs'
+import AdminEvents from './pages/Admin/Events'
+import AdminTestimonies from './pages/Admin/Testimonies'
+import AdminNotes from './pages/Admin/Notes'
+
+
 export default function App() {
   return <React.StrictMode>
-      <Router>
+      <HashRouter>
         <Routes>
-          <Route path='/somos/' element={<Home/>}/>
-          <Route path='/somos/login' element={<Login/>}></Route>
-          <Route path='/somos/eventos' element={<Events/>}></Route>
-          <Route path='/somos/proyectos' element={<Projects/>}></Route>
-          <Route path='/somos/programas' element={<Programs/>}></Route>
-          <Route path='/somos/transparencia' element={<Transparency/>}></Route>
-          <Route path='/somos/testimonios' element={<Testimonies/>}></Route>
-          <Route path='/somos/resultados' element={<Results/>}></Route>
-          
+          <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/eventos' element={<Events/>}></Route>
+          <Route path='/proyectos' element={<Projects/>}></Route>
+          <Route path='/programas' element={<Programs/>}></Route>
+          <Route path='/transparencia' element={<Transparency/>}></Route>
+          <Route path='/testimonios' element={<Testimonies/>}></Route>
+          <Route path='/resultados' element={<Results/>}></Route>
+
+          <Route path='/admin/proyectos' element={<AdminProjects/>}></Route>
+          <Route path='/admin/programas' element={<AdminPrograms/>}></Route>
+          <Route path='/admin/eventos' element={<AdminEvents/>}></Route>
+          <Route path='/admin/testimonios' element={<AdminTestimonies/>}></Route>
+          <Route path='/admin/notas' element={<AdminNotes/>}></Route>
         </Routes>
-      </Router>
+      </HashRouter>
   </React.StrictMode>
 }

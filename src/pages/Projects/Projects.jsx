@@ -4,8 +4,6 @@ import Footer from '../../components/Footer/Footer'
 import CardCarrousel from "../../components/CardCarrousel/CardCarrousel"
 import { data } from './projects.json'
 
-import Form from '../../components/Form/Form'
-
 export default function Projects() {
     
     const addProjectForm = [
@@ -19,7 +17,6 @@ export default function Projects() {
             <h2>Bienvenido a la seccion de proyectos</h2>
             <CardCarrousel array={data} imgRoute={"./images/projects/"}></CardCarrousel>
             
-            <Form fields={addProjectForm} onSubmit={(data) => console.log(data)} submitText='Enviar'></Form>
         </article>
         <Footer/> 
     </>

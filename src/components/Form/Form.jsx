@@ -10,7 +10,7 @@ export default function Form({ fields, onSubmit, submitText = 'Enviar' }) {
     }, {});
 
     const [formData, setFormData] = useState(initialFormState);
-    const [showForm, setShowForm] = useState(true);
+    const [showForm, setShowForm] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -42,8 +42,7 @@ export default function Form({ fields, onSubmit, submitText = 'Enviar' }) {
 
     return <>
         <button className='formDropdown' onClick={() => setShowForm(prev => !prev)}>
-            <img src="public/icons/plus.svg" alt="plus icon" />
-            {showForm ? 'Ocultar formulario' : 'Mostrar formulario'}</button>
+            <img src="../icons/plus.svg" alt="plus icon" />Agregar</button>
 
         {showForm && (
         <form onSubmit={handleSubmit} ref={formRef} className='form'>

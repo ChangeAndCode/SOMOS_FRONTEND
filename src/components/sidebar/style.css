@@ -1,0 +1,26 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 12vw;
+    min-width: fit-content;
+    height: 100vh;
+    padding: 1rem
+}
+
+
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.links a {
+    display: flex;
+    text-decoration: none;
+    color: var(--dark);
+    align-items: center;
+    gap: 1rem;
+}

@@ -19,7 +19,7 @@ export default function Nav() {
         </defs>
     </svg>
 
-    <Link to='/somos/'>
+    <Link to='/'>
         <img id='logo' src='./logos/somos-dark.png' alt='logo' />
     </Link>
 
@@ -28,13 +28,13 @@ export default function Nav() {
         <Link to='/somos/eventos'>Eventos</Link>
         <img src="./icons/icon1.svg" alt="" />
         */}
-        <Link to='/somos/proyectos'>Proyectos</Link>
+        <Link to='/proyectos'>Proyectos</Link>
         <img src="./icons/icon2.svg" alt="" />
-        <Link to='/somos/programas'>| Programas</Link>
+        <Link to='/programas'>| Programas</Link>
         <img src="./icons/icon3.svg" alt="" />
-        <Link to='/somos/resultados'>| Resultados</Link>
+        <Link to='/resultados'>| Resultados</Link>
         <img src="./icons/folded-flag.svg" alt="" />
-        <Link to='/somos/testimonios'>| Testimonios</Link>
+        <Link to='/testimonios'>| Testimonios</Link>
         <img src="./icons/icon4.svg" alt="" />
         {/*<Link to='/somos/login'>Admin login</Link> */}
     </div>

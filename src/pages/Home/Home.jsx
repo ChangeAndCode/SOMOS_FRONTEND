@@ -16,7 +16,7 @@ export default function Home() {
                 <h1>SOMOS Unión</h1>
                 <p>Nuestro objetivo es subsanar el tejido social de nuestra ciudad. <br />
                 Mejorando la calidad de vida de las personas.</p>
-                <Link to='/somos/transparencia'>Conoce mas 
+                <Link to='/transparencia'>Conoce mas 
                     <img src="./icons/plus.svg" alt="pluz icon" />
                 </Link>
             </div>

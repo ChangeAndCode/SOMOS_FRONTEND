@@ -35,7 +35,7 @@ export default function Login() {
         <article id="login-bg" className="first">
             <section id='login'>
                 <form onSubmit={handleLogin}>
-                    <Link to='/somos/'>
+                    <Link to='/'>
                         <img id='login-logo' src="./logos/somos-dark.png" alt="" />
                     </Link>
                     

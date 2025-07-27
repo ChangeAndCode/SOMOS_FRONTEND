@@ -1,0 +1,30 @@
+.article-flex {
+    color: var(--dark);
+    height: 100vh;
+    display: flex;
+}
+
+.adminsite {
+    flex: 1;
+    height: 100%;
+}
+
+.adminsite h1 {
+    margin-left: 1rem;
+}
+
+.projects {
+    border: 2px solid var(--dark);
+    flex: 1;
+    height: 100%;
+    padding: 1rem;
+}
+
+.project {
+    display: flex;
+    border: 2px solid var(--dark);
+}
+
+.project h2 {
+    margin: 0%;
+}
