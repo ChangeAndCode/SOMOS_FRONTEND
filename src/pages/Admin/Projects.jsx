@@ -2,10 +2,23 @@ import AdminLayout from "./AdminLayout"
 import DataGridTable from '../../components/DataGridTable/DataGridTable'
 
 import {data} from '../Projects/projects.json'
+import { useEffect } from "react";
+import { fetcher } from "../../utils/Fetcher";
 
 
 export default function Projects () {
     
+    useEffect(() => {
+        fetchProjects()
+    }, [])
+
+    const fetchProjects = async () => {
+        const data = await fetcher('api/projects', {
+            method: 'GET',
+        })
+        console.log("Fetched projects: ", data)
+    }
+
     const dummyData = [
         { id: 1, name: 'Proecto I', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
         { id: 1, name: 'Proecto II', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },

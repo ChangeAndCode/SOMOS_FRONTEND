@@ -1,3 +1,5 @@
+import { useAuth } from "../context/AuthContext";
+
 export async function fetcher(endpoint, options = {}) {
     const host = "localhost"
     const port = "3000"
@@ -11,7 +13,6 @@ export async function fetcher(endpoint, options = {}) {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             }),
         };
-
         const response = await fetch(url, {
             ...options,
             headers: {
@@ -21,7 +22,6 @@ export async function fetcher(endpoint, options = {}) {
         });
 
         const data = await response.json();
-
         if (!response.ok) {
             const message = data?.message || 'Error desconocido';
             throw new Error(message);

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Routes, Route, HashRouter } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -31,11 +32,11 @@ export default function App() {
           <Route path='/testimonios' element={<Testimonies/>}></Route>
           <Route path='/resultados' element={<Results/>}></Route>
 
-          <Route path='/admin/proyectos' element={<AdminProjects/>}></Route>
-          <Route path='/admin/programas' element={<AdminPrograms/>}></Route>
-          <Route path='/admin/eventos' element={<AdminEvents/>}></Route>
-          <Route path='/admin/testimonios' element={<AdminTestimonies/>}></Route>
-          <Route path='/admin/notas' element={<AdminNotes/>}></Route>
+          <Route path='/admin/proyectos' element={<ProtectedRoute><AdminProjects/></ProtectedRoute>}></Route>
+          <Route path='/admin/programas' element={<ProtectedRoute><AdminPrograms/></ProtectedRoute>}></Route>
+          <Route path='/admin/eventos' element={<ProtectedRoute><AdminEvents/></ProtectedRoute>}></Route>
+          <Route path='/admin/testimonios' element={<ProtectedRoute><AdminTestimonies/></ProtectedRoute>}></Route>
+          <Route path='/admin/notas' element={<ProtectedRoute><AdminNotes/></ProtectedRoute>}></Route>
         </Routes>
       </HashRouter>
   </React.StrictMode>

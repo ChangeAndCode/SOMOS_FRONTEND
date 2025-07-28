@@ -17,7 +17,7 @@ export default function DataGridTable( {fields, tableFields, dummyData} ) {
       {view === 'grid' ? (
         <div className="grid-view">
           {dummyData.map(item => (
-            <div className="gridcard" key={item.id}>
+            <div className="gridcard" key={item.name}>
               <h3>{item.name}</h3>
               <p>Fecha de inicio: {item.startDate}</p>
               <p>Fecha de cuerre: {item.endDate}</p>
