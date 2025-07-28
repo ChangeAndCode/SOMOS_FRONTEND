@@ -1,33 +1,34 @@
 import { useState } from 'react'
 import './style.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { fetcher } from '../../utils/Fetcher';
+import { useAuth } from '../../context/AuthContext';
+
 export default function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
 
+    const navigate = useNavigate();
+    const [message, setMessage] = useState(false)
+
+    const { login } = useAuth()
+
     const handleLogin = async (e) => {
         e.preventDefault()
 
         try {
-            const res = await fetch("http://localhost:3000/api/auth/login", {
+            const data = await fetcher('api/auth/login',{
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
                 body: JSON.stringify({email, password})
             })
 
-            const data = await res.json()
-
-            if(!res.ok) {
-                throw new Error(data.message || "Error de login")
-            } 
-
             console.log("Login exitoso", data)
-            localStorage.setItem("token", data.token)
+            login(data)
+            navigate('/admin/proyectos')
         } catch (err) {
-            console.log("Error: ", err.message)
+            console.log("Login error: ", err.message)
+            setMessage(err.message)
         }
     }
 
@@ -45,9 +46,13 @@ export default function Login() {
                         <input type="email" name='user' id='user' value={email} onChange={(e) => setEmail(e.target.value) }/>
                         <label htmlFor="password">Ingresa tu contraseña</label>
                         <input type="password" name="password" id="password" value={password} onChange={(e)=> setpassword(e.target.value)} />
+                        {message && (
+                            <div className='error'>{message}</div>
+                        )}
                         <p>No recuerdas tu contraseña? <br />
                         Contacta un administrador </p>
                     </div>
+                    
                     <button type='submit'>Iniciar sesión</button>
                     
                 </form>
