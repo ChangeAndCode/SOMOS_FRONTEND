@@ -1,0 +1,46 @@
+#adminnav {
+    position: fixed;
+    background-color: var(--background);
+    z-index: 4;
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    overflow: visible;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Ultralight';
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    color: var(--dark);
+    padding-right: 4rem;
+}
+
+#adminnav span {
+    display: flex;
+    white-space: nowrap;
+    margin-right: 3rem;
+}
+
+#adminnav h1 {
+    margin: 0%;
+}
+
+
+#adminnav #logo {
+    height: auto;
+    max-height: 15vh;
+    transform: translate3d(-12%, 0, 0);
+    margin-left: 2vw;
+}
+
+#adminnav button {
+    all: unset;
+    margin-left: auto;
+    margin-right: 10%;
+    cursor: pointer;
+}
+
+#adminnav button svg {
+    position: relative;
+    height: 24px;
+    width: 24px;
+}

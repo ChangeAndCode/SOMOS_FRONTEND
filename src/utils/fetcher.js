@@ -1,9 +1,9 @@
 import { useAuth } from "../context/AuthContext";
 
 export async function fetcher(endpoint, options = {}) {
-    const host = "localhost"
+    const host = "luckysw.xyz" //45.79.103.215
     const port = "3000"
-    const url = "http://" + host + ":" + port + "/" + endpoint
+    const url = "https://" + host + "/" + endpoint
 
     try {
         const defaultHeaders = {

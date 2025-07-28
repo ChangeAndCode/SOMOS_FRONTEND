@@ -2,7 +2,6 @@ import './style.css'
 import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
-    
     return <>
          <section className='sidebar'>
             <div className='links'>

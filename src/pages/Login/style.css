@@ -15,7 +15,7 @@
 
 #login {
     width: 80vw;
-    height: 80vh;
+    height: 90vh;
     background: linear-gradient(21deg, var(--secondary) 0%, var(--background) 19%, var(--background) 55%, var(--primary) 100%);
     box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -35,7 +35,7 @@
     padding: 5vw;
     padding-top: 0%;
     font-family: 'Semilight', sans-serif;
-    font-size: small;
+    font-size: smaller;
     opacity: 0;
     animation: showup 0.5s ease-in-out 0.5s forwards;
 }
@@ -50,7 +50,7 @@
 
 #login #login-logo {
     all: unset;
-    width: 340px;
+    width: 240px;
     filter: drop-shadow(6px 10px 5px rgba(0, 0, 0, 0.4));
     opacity: 0;
     animation: showup 1s ease-in-out 0.5s forwards;
@@ -92,10 +92,12 @@
 
 #login form input {
     all: unset;
-    padding: 8px 24px;
+    padding: 6px 12px;
     border-radius: 10px;
     border: 2px solid var(--dark);
     text-align: left;
+    font-family: 'light';
+    font-size: small;
 }
 
 #login form p {

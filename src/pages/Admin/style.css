@@ -1,4 +1,5 @@
 .article-flex {
+    padding-top: 10vh;
     color: var(--dark);
     height: 100vh;
     display: flex;

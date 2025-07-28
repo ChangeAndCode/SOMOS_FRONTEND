@@ -1,9 +1,24 @@
 import AdminLayout from './AdminLayout'
 import DataGridTable from '../../components/DataGridTable/DataGridTable'
-
+import { useEffect, useState } from "react";
+import { fetcher } from "../../utils/fetcher";
 
 export default function Events () {
+    const [events, setEvents] = useState([])
+
+    useEffect(() => {
+            fetchEvents()
+        }, [])
     
+        const fetchEvents = async () => {
+            const data = await fetcher('api/events', {
+                method: 'GET',
+            })
+            console.log("Fetched events: ", data)
+            setEvents(data);
+        }
+        
+
     const dummyData = [
         { id: 1, name: 'Evento I', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
         { id: 2, name: 'Evento II', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
@@ -25,7 +40,7 @@ export default function Events () {
 
     return <>
         <AdminLayout>
-             <DataGridTable dummyData={dummyData} fields={fields} tableFields={tableFields}></DataGridTable>
+             <DataGridTable data={events} fields={fields} tableFields={tableFields}></DataGridTable>
         </AdminLayout>
     </>
 }

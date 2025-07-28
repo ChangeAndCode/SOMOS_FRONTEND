@@ -4,7 +4,7 @@ import './style.css';
 import Form from '../../components/Form/Form'
 
 
-export default function DataGridTable( {fields, tableFields, dummyData} ) {
+export default function DataGridTable( {fields, tableFields, data} ) {
   const [view, setView] = useState('grid');
 
   return (
@@ -16,7 +16,7 @@ export default function DataGridTable( {fields, tableFields, dummyData} ) {
 
       {view === 'grid' ? (
         <div className="grid-view">
-          {dummyData.map(item => (
+          {data.map(item => (
             <div className="gridcard" key={item.name}>
               <h3>{item.name}</h3>
               <p>Fecha de inicio: {item.startDate}</p>
@@ -38,7 +38,7 @@ export default function DataGridTable( {fields, tableFields, dummyData} ) {
             </tr>
           </thead>
           <tbody>
-            {dummyData.map(item => (
+            {data.map(item => (
               <tr key={item.id}>
                 {tableFields.map((field) => (
                   <td>{item[field]}</td>

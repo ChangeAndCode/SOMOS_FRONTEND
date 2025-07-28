@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { fetcher } from "../utils/Fetcher";
+import { fetcher } from "../utils/fetcher";
 import { Navigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -25,6 +25,7 @@ useEffect(() => {
     console.log("Usuario establecido como:", user.name);
   } else {
     console.log("Usuario es null");
+    setLoading(false);
   }
 }, [user]);
 

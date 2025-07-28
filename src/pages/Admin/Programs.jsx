@@ -1,14 +1,22 @@
 import AdminLayout from "./AdminLayout"
 import DataGridTable from '../../components/DataGridTable/DataGridTable'
+import { useEffect, useState } from "react";
+import { fetcher } from "../../utils/fetcher";
 
 export default function Programs () {
+    const [programs, setPrograms] = useState([])
+
+    useEffect(() => {
+            fetchPrograms()
+        }, [])
     
-    const dummyData = [
-        { id: 1, name: 'Programa I', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-        { id: 2, name: 'Programa II', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-        { id: 1, name: 'Programa III', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-        { id: 1, name: 'Programa IV', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-    ];
+        const fetchPrograms = async () => {
+            const data = await fetcher('api/programs', {
+                method: 'GET',
+            })
+            console.log("Fetched projects: ", data)
+            setPrograms(data);
+        }
 
     const fields = [
         {name: "name", label: "Nombre del programa ", type: "text", placeholder: "Ingrese nombre del proyecto", required: true},
@@ -18,11 +26,11 @@ export default function Programs () {
         {name: "status", label: "Estado", type: "text", placeholder: "active", required: true
     }]
     
-    const tableFields = ['name', 'startDate', 'endDate', 'status']
+    const tableFields = ['name', 'project', 'startDate', 'endDate']
 
     return <>
         <AdminLayout>
-            <DataGridTable dummyData={dummyData} fields={fields} tableFields={tableFields}></DataGridTable>
+            <DataGridTable data={programs} fields={fields} tableFields={tableFields}></DataGridTable>
         </AdminLayout>
     </>
 }

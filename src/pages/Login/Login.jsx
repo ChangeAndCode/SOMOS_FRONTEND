@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './style.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { fetcher } from '../../utils/Fetcher';
+import { fetcher } from '../../utils/fetcher';
 import { useAuth } from '../../context/AuthContext';
 
 export default function Login() {
