@@ -17,15 +17,6 @@ export default function Events () {
             console.log("Fetched events: ", data)
             setEvents(data);
         }
-        
-
-    const dummyData = [
-        { id: 1, name: 'Evento I', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-        { id: 2, name: 'Evento II', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-        { id: 1, name: 'Evento III', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-        { id: 1, name: 'Evento IV', description: 'Este es el primer projecto junto a change and code', status: 'active', startDate: '2025-07-01', endDate: '2025-07-25' },
-
-    ];
     
         const fields = [
         {name: "name", label: "Nombre del proyecto", type: "text", placeholder: "Ingrese nombre del proyecto", required: true},
@@ -37,10 +28,11 @@ export default function Events () {
 
     const tableFields = ['name', 'startDate', 'endDate', 'status']
 
+    const postRoute = 'api/events'
 
     return <>
         <AdminLayout>
-             <DataGridTable data={events} fields={fields} tableFields={tableFields}></DataGridTable>
+             <DataGridTable data={events} fields={fields} tableFields={tableFields} postRoute={postRoute}></DataGridTable>
         </AdminLayout>
     </>
 }

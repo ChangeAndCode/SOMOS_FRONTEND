@@ -6,6 +6,19 @@ import { fetcher } from "../../utils/fetcher";
 export default function Programs () {
     const [programs, setPrograms] = useState([])
 
+    const fields = [
+        {name: "name", label: "Nombre del programa ", type: "text", placeholder: "Ingrese nombre del proyecto", required: true},
+        {name: "description", label: "Descripcion", type: "text", placeholder: "Insgrese descripcion del proyecto", required: true},
+        {name: "startDate", label: "Fecha de inicio", type: "date", placeholder: "dd/mm/yyyy", required: true},
+        {name: "endDate", label: "Fecha de fin", type: "date", placeholder: "dd/mm/yyyy", required: true}, 
+        {name: "status", label: "Estado", type: "text", placeholder: "active", required: true
+    }]
+    
+    // Displayed fields (table form)
+    const tableFields = ['name', 'project', 'startDate', 'endDate']
+
+    const postRoute = 'api/programs'
+
     useEffect(() => {
             fetchPrograms()
         }, [])
@@ -18,19 +31,10 @@ export default function Programs () {
             setPrograms(data);
         }
 
-    const fields = [
-        {name: "name", label: "Nombre del programa ", type: "text", placeholder: "Ingrese nombre del proyecto", required: true},
-        {name: "description", label: "Descripcion", type: "text", placeholder: "Insgrese descripcion del proyecto", required: true},
-        {name: "startDate", label: "Fecha de inicio", type: "date", placeholder: "dd/mm/yyyy", required: true},
-        {name: "endDate", label: "Fecha de fin", type: "date", placeholder: "dd/mm/yyyy", required: true}, 
-        {name: "status", label: "Estado", type: "text", placeholder: "active", required: true
-    }]
     
-    const tableFields = ['name', 'project', 'startDate', 'endDate']
-
     return <>
         <AdminLayout>
-            <DataGridTable data={programs} fields={fields} tableFields={tableFields}></DataGridTable>
+            <DataGridTable data={programs} fields={fields} tableFields={tableFields} postRoute={postRoute}></DataGridTable>
         </AdminLayout>
     </>
 }

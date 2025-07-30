@@ -16,9 +16,11 @@
     transform: translate(-50%, -50%);
     background-color: var(--background);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    width: fit-content;
+    width: 30vw;
     padding: 1rem;
     background-color: white;
+    font-family: 'semilight';
+    padding: 2vh
 }
 
 .form div {
@@ -29,10 +31,12 @@
 .form input{
     all: unset;
     box-sizing: border-box;
+    width: fit-content;
     border-radius: 5px;
-    border: 2px solid var(--dark);
+    border: 1px solid var(--dark);
     font-family: 'ultralight';
-    
+    font-size: smaller;
+    color: black;
 }
 
 .form button {

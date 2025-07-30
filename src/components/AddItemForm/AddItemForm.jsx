@@ -1,7 +1,9 @@
 import './style.css'
 import React, { useEffect, useRef, useState } from 'react';
+import { fetcher } from '../../utils/fetcher';
 
-export default function Form({ fields, onSubmit, submitText = 'Enviar' }) {
+
+export default function AddItemForm({ fields, postRoute, submitText = 'Enviar' }) {
     
     // fields: array de objetos { name, label, type, placeholder, required }
     const initialFormState = fields.reduce((acc, field) => {
@@ -19,12 +21,21 @@ export default function Form({ fields, onSubmit, submitText = 'Enviar' }) {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit(formData);
+
+        console.log("Form data: ", formData)
+        const response = await fetcher(postRoute, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            auth: true
+        })
+        console.log("Response del post: ", response)
+        
         // Opcional: limpiar formulario después de enviar
         setFormData(initialFormState);
     };
+
     
     const formRef = useRef(null)
 

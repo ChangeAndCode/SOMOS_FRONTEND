@@ -16,6 +16,7 @@
 #login {
     width: 80vw;
     height: 90vh;
+    min-width: 320px;
     background: linear-gradient(21deg, var(--secondary) 0%, var(--background) 19%, var(--background) 55%, var(--primary) 100%);
     box-shadow: 12px 12px 10px rgba(0, 0, 0, 0.3);
     display: flex;

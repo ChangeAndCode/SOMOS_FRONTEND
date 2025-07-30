@@ -1,8 +1,10 @@
 import { useAuth } from "../context/AuthContext";
 
 export async function fetcher(endpoint, options = {}) {
-    const host = "luckysw.xyz" //45.79.103.215
-    const port = "3000"
+
+    const host = 'luckysw.xyz'
+    //const host = "miniature-disco-wgwg9p6wj9q2vgwr-3000.app.github.dev"   
+    //const host = 'localhost:3000'
     const url = "https://" + host + "/" + endpoint
 
     try {
@@ -19,7 +21,7 @@ export async function fetcher(endpoint, options = {}) {
                 ...defaultHeaders,
                 ...(options.headers || {}),
             },
-        });
+        })
 
         const data = await response.json();
         if (!response.ok) {
