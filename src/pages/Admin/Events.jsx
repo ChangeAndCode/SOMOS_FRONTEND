@@ -28,11 +28,11 @@ export default function Events () {
 
     const tableFields = ['name', 'startDate', 'endDate', 'status']
 
-    const postRoute = 'api/events'
+    const route = 'api/events'
 
     return <>
         <AdminLayout>
-             <DataGridTable data={events} fields={fields} tableFields={tableFields} postRoute={postRoute}></DataGridTable>
+             <DataGridTable data={events} setData={setEvents} fields={fields} tableFields={tableFields} route={route}></DataGridTable>
         </AdminLayout>
     </>
 }

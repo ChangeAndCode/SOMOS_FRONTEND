@@ -17,7 +17,7 @@ export default function Programs () {
     // Displayed fields (table form)
     const tableFields = ['name', 'project', 'startDate', 'endDate']
 
-    const postRoute = 'api/programs'
+    const route = 'api/programs'
 
     useEffect(() => {
             fetchPrograms()
@@ -34,7 +34,7 @@ export default function Programs () {
     
     return <>
         <AdminLayout>
-            <DataGridTable data={programs} fields={fields} tableFields={tableFields} postRoute={postRoute}></DataGridTable>
+            <DataGridTable data={programs} setData={setPrograms} fields={fields} tableFields={tableFields} route={route}></DataGridTable>
         </AdminLayout>
     </>
 }
