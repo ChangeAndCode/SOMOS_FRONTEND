@@ -12,7 +12,6 @@ export default function Form({ show, setShow, fields, route, method, editId, set
     }, {});
 
     const [formData, setFormData] = useState(initialFormState);
-    
 
     const handleChange = (e) => {
         setFormData({
@@ -47,6 +46,26 @@ export default function Form({ show, setShow, fields, route, method, editId, set
         setFormData(initialFormState);
     };
 
+    const handleImageChange = async (e) => {
+        console.log("Imagen agregada: ", e.target.files[0])
+
+        const data = new FormData();
+        data.append('file', e.target.files[0]);
+        data.append('upload_preset', 'somosproject');
+        data.append('folder', 'somos');
+
+        const res = await fetch('https://api.cloudinary.com/v1_1/dqkrricbh/image/upload', {
+            method: 'POST',
+            body: data,
+        });
+
+        const file = await res.json();
+        console.log('Imagen subida:', file.secure_url);
+        setFormData(prev => ({
+            ...prev,
+            images: [...(prev.images || []), file.secure_url]
+        }));
+    };
 
     return <>
         
@@ -69,8 +88,18 @@ export default function Form({ show, setShow, fields, route, method, editId, set
                 />
                 </div>
             ))}
+
+                <div className='previewImgs'>
+                    <p>Images</p>
+                    {formData.images? formData.images.map(img => 
+                        <img src={img} alt="imagen no encontrada" />
+                    ) : <></>}
+                    <input type="file" multiple onChange={handleImageChange} />
+                </div>
+            
             <button type="submit">{submitText}</button>
         </form>
         )}
     </>
 }
+

@@ -32,7 +32,7 @@ export default function Nav() {
         <img src="./icons/icon2.svg" alt="" />
         <Link to='/programas'>| Programas</Link>
         <img src="./icons/icon3.svg" alt="" />
-        <Link to='/resultados'>| Resultados</Link>
+        <Link to='/eventos'>| Eventos</Link>
         <img src="./icons/folded-flag.svg" alt="" />
         <Link to='/testimonios'>| Testimonios</Link>
         <img src="./icons/icon4.svg" alt="" />

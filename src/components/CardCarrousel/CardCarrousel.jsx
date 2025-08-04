@@ -3,7 +3,7 @@ import Card from "./Card"
 import './style.css'
 import DetailedCard from "./DetailedCard"
 
-export default function CardCarrousel ({array, imgRoute}){
+export default function CardCarrousel ({array}){
 
     const [selectedCard, setSelectedCard] = useState(null)
 
@@ -28,11 +28,11 @@ export default function CardCarrousel ({array, imgRoute}){
 
     return <>
         <section className="card-carrousel" ref={ref}>
-            {array.map(item => <Card key={item.id} onClick={ () => setSelectedCard(item)} item={item} imgRoute={imgRoute} ></Card>)}
+            {array.map(item => <Card key={item.id} onClick={ () => setSelectedCard(item)} item={item} ></Card>)}
             
         </section>
         {selectedCard && (
-                <DetailedCard card={selectedCard} onClose={() => setSelectedCard(null)} imgRoute={imgRoute}/>
+                <DetailedCard card={selectedCard} onClose={() => setSelectedCard(null)}/>
             )}
     </>
 }
