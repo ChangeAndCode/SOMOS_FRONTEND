@@ -17,7 +17,7 @@ export default function AdmiNav() {
             <h1>Panel de administración</h1>
             <span>
                 <button onClick={() => {logout(); navigate('/login')}}>Cerrar sesión</button>
-                <ThemeToggleButton/>
+                <ThemeToggleButton toogle={true}/>
             </span>
         </nav>
 

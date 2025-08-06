@@ -15,7 +15,7 @@ export default function Programs () {
     }]
     
     // Displayed fields (table form)
-    const tableFields = ['name', 'project', 'startDate', 'endDate']
+    const tableFields = ['name', 'startDate', 'endDate']
 
     const route = 'api/programs'
 

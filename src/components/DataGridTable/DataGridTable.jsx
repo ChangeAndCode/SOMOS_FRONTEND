@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './style.css';
 import Form from '../Form/Form';
 import { fetcher } from '../../utils/fetcher';
-
+import { dateFormatter } from '../../utils/dateFormatter';
 
 export default function DataGridTable( {fields, tableFields, data, setData, route} ) {
   const [view, setView] = useState('grid');
@@ -70,13 +70,17 @@ export default function DataGridTable( {fields, tableFields, data, setData, rout
           {data.map(item => (
             <div className="gridcard" key={item._id}>
               <h3>{item.name}</h3>
-              <p>Fecha de inicio: {item.startDate}</p>
-              <p>Fecha de cuerre: {item.endDate}</p>
-              <p>Status: {item.status}</p>
-              <button onClick={() => handleEdit(item._id)}>
+              {item.startDate && item.endDate && (<>
+                <p>Fecha de inicio: {dateFormatter(item.startDate)}</p>
+                <p>Fecha de cuerre: {dateFormatter(item.endDate)}</p>
+              </>)}
+              {item.message? <p>{item.message}</p> : <></>}
+              {item.status? <p>Status: {item.status}</p> : <></>}
+              
+              <button onClick={() => handleEdit(item._id)} className='editBtn'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M96,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="216" y1="216" x2="96" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="136" y1="64" x2="192" y2="120" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
               </button>
-              <button onClick={() => deleteItem(item._id)}>
+              <button onClick={() => deleteItem(item._id)} className='deleteBtn'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="216" y1="56" x2="40" y2="56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="104" y1="104" x2="104" y2="168" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="152" y1="104" x2="152" y2="168" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><path d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><path d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
               </button>
             </div>
@@ -98,10 +102,10 @@ export default function DataGridTable( {fields, tableFields, data, setData, rout
                 {tableFields.map((field, i) => (
                   <td key={i}>{item[field]}</td>
                 ))}
-                <td><button onClick={() => handleEdit(item._id)}>
+                <td><button onClick={() => handleEdit(item._id)} className='editBtn'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="2" height="2" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M96,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="216" y1="216" x2="96" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="136" y1="64" x2="192" y2="120" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
                 </button>
-                <button onClick={() => deleteItem(item._id)}>
+                <button onClick={() => deleteItem(item._id)} className='deleteBtn'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="2" height="2" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="216" y1="56" x2="40" y2="56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="104" y1="104" x2="104" y2="168" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><line x1="152" y1="104" x2="152" y2="168" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><path d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/><path d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
                 </button></td>
               </tr>

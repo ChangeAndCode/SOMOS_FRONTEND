@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { dateFormatter } from "../../utils/dateFormatter"
 
 export default function DetailedCard ({card, onClose}) {
     /// ---- Cierre al dar click afuera 
@@ -31,6 +32,8 @@ export default function DetailedCard ({card, onClose}) {
         );
     };
 
+    
+
     return <>
         <article ref={ventanaRef} className="detailed-card">
             
@@ -53,7 +56,7 @@ export default function DetailedCard ({card, onClose}) {
                 <section className="content">
                     <h1>{card.name}</h1>  
                     <p>{card.description}</p>
-                    <h3 className="numbers">{card.startDate}</h3>
+                    <h3 className="numbers">{dateFormatter(card.startDate)}</h3>
                 </section>
 
             
