@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { fetcher } from '../../utils/fetcher';
 
 
-export default function Form({ show, setShow, fields, route, method, editId, setData, submitText = 'Enviar', formRef }) {
+export default function Form({ show, setShow, fields, data, route, method, editId, setData, submitText = 'Enviar', formRef }) {
     
-    // fields: array de objetos { name, label, type, placeholder, required }
+    // fields: array de objetos { name, label, type, placeholder, required }    
     const initialFormState = fields.reduce((acc, field) => {
         acc[field.name] = '';
         return acc;
@@ -13,11 +13,19 @@ export default function Form({ show, setShow, fields, route, method, editId, set
 
     const [formData, setFormData] = useState(initialFormState);
 
+    useEffect(() => {
+        if (data) {
+            console.log("data: ", data)
+            setFormData(data);
+        }
+    }, [data]);
+
     const handleChange = (e) => {
         setFormData({
         ...formData,
         [e.target.name]: e.target.value,
         });
+        console.log("FormData:", formData)
     };
 
     const handleSubmit = async (e) => {
@@ -67,25 +75,30 @@ export default function Form({ show, setShow, fields, route, method, editId, set
         }));
     };
 
+    const formatDateForInput = (dateString) => {
+    if (!dateString) return '';
+    return new Date(dateString).toISOString().split('T')[0]; // "YYYY-MM-DD"
+    };
+
     return <>
         
         {show && (
         <form onSubmit={handleSubmit} ref={formRef} className='form'>
             {fields.map(({ name, label, type = 'text', placeholder = '', required = false }) => (
                 <div key={name}>
-                <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
-                    {label}
-                </label>
-                <input
-                    id={name}
-                    name={name}
-                    type={type}
-                    placeholder={placeholder}
-                    value={formData[name]}
-                    onChange={handleChange}
-                    required={required}
-                    style={{ padding: '.5rem', width: '100%' }}
-                />
+                    <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
+                        {label}
+                    </label>
+                    <input
+                        id={name}
+                        name={name}
+                        type={type}
+                        placeholder={placeholder}
+                        value={type === 'date' ? formatDateForInput(formData[name]) : (formData[name] || '')}
+                        onChange={handleChange}
+                        required={required}
+                        style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif'}}
+                    />
                 </div>
             ))}
 
@@ -94,7 +107,7 @@ export default function Form({ show, setShow, fields, route, method, editId, set
                     {formData.images? formData.images.map(img => 
                         <img src={img} alt="imagen no encontrada" />
                     ) : <></>}
-                    <input type="file" multiple onChange={handleImageChange} />
+                    <input type="file" multiple onChange={handleImageChange} style={{width: '100%'}}/>
                 </div>
             
             <button type="submit">{submitText}</button>

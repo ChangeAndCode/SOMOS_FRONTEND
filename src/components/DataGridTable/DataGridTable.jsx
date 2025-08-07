@@ -28,10 +28,17 @@ export default function DataGridTable( {fields, tableFields, data, setData, rout
         }
     }, [showForm])
 
+    const [editItem, setEditItem] = useState('')
+    useEffect(() => {
+      setEditItem(data.find(item => item._id === itemId))
+      
+    }, [itemId])
+
     function handleEdit(id) {
-       setShowEditForm(prev => !prev)
-       setItemId(id)
+      setItemId(id)               
+      setShowEditForm(true)       
     }
+
 
     useEffect(() => {
         const handleOutsideClick = (e) => {
@@ -118,7 +125,7 @@ export default function DataGridTable( {fields, tableFields, data, setData, rout
           Agregar
       </button>
       <Form show={showForm} setShow={setShowForm} fields={fields} route={route} method='POST' setData={setData} submitText='Enviar' formRef={formRef}></Form>
-      <Form show={showEditForm} setShow={setShowEditForm} fields={fields} route={route + '/' + itemId} method='PUT' editId={itemId} setData={setData} submitText='Guardar' formRef={editRef}></Form>
+      <Form show={showEditForm} setShow={setShowEditForm} fields={fields} data={editItem} route={route + '/' + itemId} method='PUT' editId={itemId} setData={setData} submitText='Guardar' formRef={editRef}></Form>
     </div>
   );
 }

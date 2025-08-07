@@ -11,8 +11,8 @@ export default function Programs () {
         {name: "description", label: "Descripcion", type: "text", placeholder: "Insgrese descripcion del proyecto", required: true},
         {name: "startDate", label: "Fecha de inicio", type: "date", placeholder: "dd/mm/yyyy", required: true},
         {name: "endDate", label: "Fecha de fin", type: "date", placeholder: "dd/mm/yyyy", required: true}, 
-        {name: "status", label: "Estado", type: "text", placeholder: "active", required: true
-    }]
+        //{name: "status", label: "Estado", type: "text", placeholder: "active", required: true}
+    ]
     
     // Displayed fields (table form)
     const tableFields = ['name', 'startDate', 'endDate']
