@@ -70,13 +70,26 @@
 
 .editBtn {
     all: unset;
-    background: var(--background);
+    background: #06b6d4;
     color: var(--dark);
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 4px;
     transition: background 0.3s;
   }
   .deleteBtn {
     all: unset;
-    background: var(--background);
+    background: #f87171;
     color: var(--dark);
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 4px;
     transition: background 0.3s;
   }
+
+.actions {
+  display: flex;
+  gap: 4px;
+}

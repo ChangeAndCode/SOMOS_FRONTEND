@@ -32,17 +32,17 @@ export default function Nav() {
             <p>Proyectos</p>
             <img src="./icons/icon2.svg" alt="" />
         </Link>
-        <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="24" x2="128" y2="232" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="24" x2="128" y2="232" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
         <Link to='/programas'>
             <p>Programas</p>
             <img src="./icons/icon3.svg" alt="" />
         </Link>
-        <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="24" x2="128" y2="232" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="24" x2="128" y2="232" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
         <Link to='/eventos'>
             <p>Eventos</p>
             <img src="./icons/folded-flag.svg" alt="" />
         </Link>
-        <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="24" x2="128" y2="232" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="128" y1="24" x2="128" y2="232" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"/></svg>
         <Link to='/testimonios'>
             <p>Testimonios</p>
             <img src="./icons/icon4.svg" alt="" />

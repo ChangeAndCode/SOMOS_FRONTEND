@@ -19,14 +19,13 @@ export default function Events () {
         }
     
         const fields = [
-        {name: "name", label: "Nombre del proyecto", type: "text", placeholder: "Ingrese nombre del proyecto", required: true},
-        {name: "description", label: "Descripcion", type: "text", placeholder: "Insgrese descripcion del proyecto", required: true},
-        {name: "startDate", label: "Fecha de inicio", type: "date", placeholder: "dd/mm/yyyy", required: true},
-        {name: "endDate", label: "Fecha de fin", type: "date", placeholder: "dd/mm/yyyy", required: true}, 
-        {name: "status", label: "Estado", type: "text", placeholder: "active", required: true
-    }]
+            {name: "name", label: "Nombre del proyecto", type: "text", placeholder: "Ingrese nombre del proyecto", required: true},
+            {name: "description", label: "Descripcion", type: "text", placeholder: "Insgrese descripcion del proyecto", required: true},
+            {name: "location", label: "Ubicación", type: "text", placeholder: "Av. ejemplo #1234", required: true},
+            {name: "startDate", label: "Fecha", type: "date", placeholder: "dd/mm/yyyy", required: true},
+        ]
 
-    const tableFields = ['name', 'startDate', 'endDate', 'status']
+    const tableFields = ['name', 'location','date', /*'status'*/]
 
     const route = 'api/events'
 

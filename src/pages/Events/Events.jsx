@@ -1,34 +1,32 @@
 import Nav from "../../components/Nav/Nav"
 import './Events.css'
+import Footer from "../../components/Footer/Footer"
+import { useEffect, useState } from "react"
+import { fetcher } from "../../utils/fetcher"
+import CardCarrousel from "../../components/CardCarrousel/CardCarrousel"
 
 export default function Events() {
+
+    const [events, setEvents] = useState([])
+
+    async function fetchEvents () {
+        const data = await fetcher('api/events', {
+            method: 'GET'
+        })
+        console.log('Fetched events: ', data)
+        setEvents(data)
+    }
+
+    useEffect(() => {
+        fetchEvents()
+    }, [])
+
     return <>
         <Nav></Nav>
-        <section className="section">
-            <div className="container">
-                
-                <img src="./event.jpg" alt="event" />
-                <h2>7o MiFAM Canaco</h2>
-                <p>
-                    En pro del desarrollo familiar.... descripcion objetivo del evento
-                </p>
-                <p id="date">fecha de inicio: 20 de junio 2025
-                En Cedefam Vallarta</p>
-            
-            </div>
-            
-            <div className="container">
-                
-                <img src="./event3.jpg" alt="event" />
-<h2>7o MiFAM Canaco</h2>
-                
-                <p>
-                    En pro del desarrollo familiar.... descripcion objetivo del evento
-                </p>
-                <p id="date">fecha de inicio: 20 de junio 2025
-                En Cedefam Vallarta</p>
-            </div>
-        </section>       
-         
+        <article className="first">
+            <h2>Bienvenido a la pagina de eventos</h2>    
+            <CardCarrousel array={events}></CardCarrousel>
+        </article> 
+        <Footer></Footer>
     </>
 }
