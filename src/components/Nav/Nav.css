@@ -65,6 +65,9 @@
 }
 
 @media (max-width: 800px) {
+    #nav {
+        position: absolute;
+    }
   #links a p {
     display: none;
   }

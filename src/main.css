@@ -58,32 +58,13 @@ body svg {
     color: var(--secondary);
 }
 
-.event {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    gap: 7%;
-}
 
-.event div {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-}
 
 #date {
     text-align: end;
 }
 
-.event img {
-    position: relative;
-    width: fit-content;
-    max-height: 80vh;
-    max-width: 35vw;
-    object-fit: none;
-    background-color: var(--background);
 
-}
 
 .section h2 {
     color: var(--bright);

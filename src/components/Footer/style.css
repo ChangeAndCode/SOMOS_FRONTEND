@@ -33,3 +33,12 @@ footer span {
     align-items: center;
     gap: 16px;
 }
+
+@media (max-width: 800px) {
+    footer {
+        flex-direction: column;
+        justify-items: left;
+        align-items: start;
+        padding: 24px;
+    }
+}
