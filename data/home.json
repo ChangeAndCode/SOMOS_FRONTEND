@@ -1,0 +1,27 @@
+{
+  "colaboration":{
+    "title": "Orgullosos colaboradores de:",
+    "logos":[
+      {
+        "name": "coprev-logo",
+        "link": "./logos/coprev.jpeg"
+      },
+      {
+        "name": "somos-logo_1",
+        "link": "./logos/somos.png"
+      },
+      {
+        "name": "red-emprende-logo",
+        "link": "./logos/red-emprende.png"
+      },
+      {
+        "name": "somos-logo_2",
+        "link": "./logos/somos.png"
+      },
+      {
+        "name": "redpro-logo",
+        "link": "./logos/redpro.png"
+      }
+    ]
+  }
+}
