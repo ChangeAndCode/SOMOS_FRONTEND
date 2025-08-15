@@ -5,6 +5,7 @@ import './Home.css'
 
 import Nav from '../../components/Nav/Nav'
 import Footer from "../../components/Footer/Footer"
+import Colaboration from "./components/colaboration";
 
 export default function Home() {
     return <>
@@ -23,25 +24,7 @@ export default function Home() {
             
         </section>
 
-        <section id='patreons'>
-            <p>Orgullosos colaboradores de:</p>
-            <div id='carrousel'>
-                <img src='./logos/coprev.jpeg' alt='coprev-logo' />
-                <img src='./logos/somos.png' alt='somos-logo' />
-                <img src='./logos/red-emprende.png' alt='red-emprende-logo' />
-                <img src='./logos/somos.png' alt='somos-logo' />
-                <img src='./logos/redpro.png' alt='redpro-logo' />
-            </div>
-            { /* ---------  Duplicado  ----------*/ }
-            <div id='carrousel2'>
-                <img src='./logos/coprev.jpeg' alt='coprev-logo' />
-                <img src='./logos/somos.png' alt='somos-logo' />
-                <img src='./logos/red-emprende.png' alt='red-emprende-logo' />
-                <img src='./logos/somos.png' alt='somos-logo' />
-                <img src='./logos/redpro.png' alt='redpro-logo' />
-            </div>
-        
-        </section>
+        <Colaboration/>
 
         <section id='statistics'>
             <div>
@@ -116,6 +99,6 @@ export default function Home() {
             
         </section>
 
-        <Footer></Footer>
+        <Footer/>
     </>
 }

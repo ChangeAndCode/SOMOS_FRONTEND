@@ -1,219 +1,171 @@
 #cover {
-    position: relative;
-    width: 100vw;
-    height: 70vh;
-    overflow: visible;
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+  overflow: visible;
 }
 
 #cover-img {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 #cover #overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 #cover #content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding-left: 15%;
-    padding-right: 15%;
-    animation: showup 2s ease-in-out 0.5s forwards;
-    opacity: 0;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-left: 15%;
+  padding-right: 15%;
+  animation: showup 2s ease-in-out 0.5s forwards;
+  opacity: 0;
 }
 
 #cover a {
-    margin-top: 2%;
-    display: inline-flex;
-    align-items: center;
-    background-color: #8A3677;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    font-family: 'Bold-italic';
-    text-decoration: none;
+  margin-top: 2%;
+  display: inline-flex;
+  align-items: center;
+  background-color: #8a3677;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-family: "Bold-italic";
+  text-decoration: none;
 }
 
 #cover a img {
-    height: 16px;
-    width: 16px;
-    margin-left: 10px;
-    object-fit: contain;
+  height: 16px;
+  width: 16px;
+  margin-left: 10px;
+  object-fit: contain;
 }
 
 #cover a:hover {
-    background-color: #59224C;
+  background-color: #59224c;
 }
 
-
 #cover #content p {
-    font-size: large;
-    font-family: 'Semilight-italic';
-    margin: 0%;
+  font-size: large;
+  font-family: "Semilight-italic";
+  margin: 0%;
 }
 
 #content h1 {
-    font-size: 48px;
-    font-weight: normal;
-    font-family: 'Letterpress';
-    margin: 0%;
-}
-
-#patreons {
-    height: 10vh;
-    width: 100vw;
-    display: flex;
-    background-color: white;
-    border: 5px solid transparent;
-    border-image: linear-gradient(45deg, #00ACA6, #5DC55D, #00ACA6);
-    border-image-slice: 1;
-    overflow-x: hidden;
-}
-
-#patreons p {
-    position: absolute;
-    transform: translateY(-250%);
-    z-index: 3;
-    width: 100vw;
-    text-align: center;
-    color: white;
-    font-family: 'Light';
-    font-size: medium;
-}
-
-#patreons div {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    gap: 4rem;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#carrousel {
-    animation: slide infinite 24s linear;
-}
-
-#carrousel2 {
-    transform: translateX(100%);
-    animation: slide infinite 24s linear;
-    animation-delay: 12s;
-}
-
-#patreons img {
-    max-height: 80%;
+  font-size: 48px;
+  font-weight: normal;
+  font-family: "Letterpress";
+  margin: 0%;
 }
 
 #statistics {
-    background-color: var(--background);
-    color: var(--bright);
-    height: 30vh;
-    width: 100vw;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
+  background-color: var(--background);
+  color: var(--bright);
+  height: 30vh;
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #statistics div {
-    margin: 12px;
-    .statistic {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-    }
-    p {
-        font-family: 'regular', Arial, Helvetica, sans-serif;
-    }
-    h1 {
-        font-family: Arial;
-    }
+  margin: 12px;
+  .statistic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  p {
+    font-family: "regular", Arial, Helvetica, sans-serif;
+  }
+  h1 {
+    font-family: Arial;
+  }
 }
 
-
 .statistic {
-    display: flex;
-    color: #B28A39;
+  display: flex;
+  color: #b28a39;
 }
 
 #events {
-    width: 100vw;
-    background-color: var(--background);
-    color: var(--bright);
-    font-family: 'Semilight';
-    margin-bottom: 5%;
+  width: 100vw;
+  background-color: var(--background);
+  color: var(--bright);
+  font-family: "Semilight";
+  margin-bottom: 5%;
 }
 
 .event img {
-    width: 360px;
-    height: 240px;
-    position: relative;
-    object-fit: cover;
-    background-color: var(--background);
-
+  width: 360px;
+  height: 240px;
+  position: relative;
+  object-fit: cover;
+  background-color: var(--background);
 }
 
 .event {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    gap: 7%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  gap: 7%;
 }
 
 .event div {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
 }
 
 @media (max-width: 800px) {
-    .event {
-        gap: 0px;
-        img {
-            width: 220px;
-            height: 240px;
-        }
+  .event {
+    gap: 0px;
+    img {
+      width: 220px;
+      height: 240px;
     }
+  }
 }
 
 @keyframes showup {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide {
-    from {
-        transform: translateX(100%);
-    }
+  from {
+    transform: translateX(100%);
+  }
 
-    to {
-        transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(-100%);
+  }
 }
