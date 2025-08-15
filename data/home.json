@@ -1,7 +1,7 @@
 {
-  "colaboration":{
+  "colaboration": {
     "title": "Orgullosos colaboradores de:",
-    "logos":[
+    "logos": [
       {
         "name": "coprev-logo",
         "link": "./logos/coprev.jpeg"
@@ -21,6 +21,21 @@
       {
         "name": "redpro-logo",
         "link": "./logos/redpro.png"
+      }
+    ],
+    "statistics": [
+      {
+        "title": "Proximo evento",
+        "subtitle": "Por anunciarse",
+        "location": "ubicacion pendiente"
+      },
+      {
+        "name": "Colaboradores",
+        "value": "50+"
+      },
+      {
+        "name": "Comunidad",
+        "value": "2000+"
       }
     ]
   }
