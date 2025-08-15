@@ -5,6 +5,7 @@ import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import Colaboration from "./components/colaboration";
 import Statistics from "./components/statistics";
+import HomeData from "../../../data/home.json";
 
 export default function Home() {
   return (
@@ -28,7 +29,7 @@ export default function Home() {
       </section>
 
       <Colaboration />
-      <Statistics />
+      <Statistics data={HomeData.statistics} />
 
       <section id="events">
         <h1>Hecha un vistazo a nuestras ultimas actividades</h1>
