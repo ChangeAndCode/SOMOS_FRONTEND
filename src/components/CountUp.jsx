@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const CountUp = ({ start = 0, end, duration = 2000 }) => {
   const [value, setValue] = useState(start);
@@ -17,7 +17,7 @@ const CountUp = ({ start = 0, end, duration = 2000 }) => {
     requestAnimationFrame(step);
   }, [start, end, duration]);
 
-  return <>{value}</>;
+  return <div className="font-montserrat">{value}</div>;
 };
 
 export default CountUp;
