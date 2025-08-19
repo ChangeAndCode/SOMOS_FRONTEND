@@ -4,7 +4,8 @@ import FooterData from "../../../data/footer.json";
 export default function Footer() {
   return (
     <>
-      <footer className="bg-[var(--bright)] text-[var(--light)] px-5 pb-10">
+      <footer className="bg-[var(--primary)] text-[var(--light)] m-10 p-5 rounded-2xl chadow-md">
+        <img src={FooterData.socialMedia[3].image_white} alt="hola" />
         <h2 className="text-center xs:text-lg md:text-2xl lg:text-4xl font-extrabold xs:my-5 md:my-10">
           {FooterData.contact}
         </h2>
