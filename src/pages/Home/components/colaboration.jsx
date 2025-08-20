@@ -1,7 +1,5 @@
-import homeData from "../../../../data/home.json";
-
-export default function Colaboration() {
-  const logos = homeData.colaboration?.logos ?? [];
+export default function Colaboration({ data }) {
+  const logos = data?.logos ?? [];
   return (
     <>
       <section
@@ -11,9 +9,7 @@ export default function Colaboration() {
           items-center
       "
       >
-        <p className="p-5 text-center font-bold">
-          {homeData.colaboration.title}
-        </p>
+        <p className="p-5 text-center font-bold">{data.title}</p>
         <div className="relative w-full h-full overflow-hidden edge-fade ">
           <div
             className="

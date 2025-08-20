@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Colaboration />
+      <Colaboration data={HomeData.colaboration}/>
       <Statistics data={HomeData.statistics} />
 
       <section id="events">
