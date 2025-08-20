@@ -15,7 +15,6 @@ export default function Colaboration() {
           {homeData.colaboration.title}
         </p>
         <div className="relative w-full h-full overflow-hidden edge-fade ">
-          {/* PISTA: ancho real del contenido, no forzado a 100% */}
           <div
             className="
             animate-marquee
@@ -23,7 +22,6 @@ export default function Colaboration() {
             whitespace-nowrap gap-16
           "
           >
-            {/* COPIA 1 */}
             <div className="flex items-center w-max gap-16">
               {logos.map((logo, i) => (
                 <img
@@ -35,8 +33,6 @@ export default function Colaboration() {
                 />
               ))}
             </div>
-
-            {/* COPIA 2 (idéntica) */}
             <div className="flex items-center w-max gap-16" aria-hidden="true">
               {logos.map((logo, i) => (
                 <img
