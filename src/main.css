@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
   --breakpoint-xs: 300px;
   --font-letterpress: "Letterpress", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
 }
 
 /* borde gradiente */
