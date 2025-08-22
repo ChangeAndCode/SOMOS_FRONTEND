@@ -25,8 +25,3 @@ dist-ssr
 *.sln
 *.sw?
 .env
-
-# Ignorar todas las imágenes JPG y PNG en el repo
-*.jpg
-*.jpeg
-*.png
