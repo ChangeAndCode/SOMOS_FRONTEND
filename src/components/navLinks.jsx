@@ -7,12 +7,12 @@ export default function NavLinks({
   iconClass = "w-5 h-5",
 }) {
   return (
-    <ul className={`flex xs:flex-col lg:flex-row  gap-4 ${className}`}>
+    <ul className={`grid xs:grid-cols-2 md:grid-cols-4 gap-4 ${className}`}>
       {navLinks.map(({ to, label, Icon }) => (
         <li key={to}>
           <Link
             to={to}
-            className="hover:underline font-semibold inline-flex gap-2"
+            className="hover:scale-110 hover:text-[var(--gold)] font-semibold flex gap-2"
           >
             {withIcons && Icon ? <Icon className={iconClass} /> : null}
             <span>{label}</span>
