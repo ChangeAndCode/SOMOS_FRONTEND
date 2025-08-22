@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-public
+
 
 
 # Editor directories and files
@@ -25,5 +25,8 @@ public
 *.sln
 *.sw?
 .env
-.png
-.jpg
+
+# Ignorar todas las imágenes JPG y PNG en el repo
+*.jpg
+*.jpeg
+*.png
