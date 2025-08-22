@@ -7,7 +7,7 @@ export default function Footer() {
   const { darkMode } = useTheme();
   return (
     <>
-      <footer className="bg-[var(--bright)] border-gradient text-[var(--light)] p-5 rounded-2xl shadow-md">
+      <footer className="bg-[var(--bright)] border-gradient text-[var(--light)] p-5 rounded-2xl shadow-md mt-10">
         <h2 className="font-letterpress  text-center xs:text-2xl  md:text-4xl xs:my-5 md:my-10">
           {FooterData.contact}
         </h2>
