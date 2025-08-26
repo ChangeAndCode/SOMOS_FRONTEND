@@ -106,11 +106,6 @@ body {
   font-size: small;
 }
 
-body svg {
-  width: 24px;
-  height: 24px;
-}
-
 #events {
   height: fit-content;
   background-color: var(--bright);
