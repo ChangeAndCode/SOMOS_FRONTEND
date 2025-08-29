@@ -31,7 +31,7 @@ export default function Events () {
 
     return <>
         <AdminLayout>
-             <DataGridTable data={events} setData={setEvents} fields={fields} tableFields={tableFields} route={route}></DataGridTable>
+            <DataGridTable data={events} setData={setEvents} fields={fields} tableFields={tableFields} route={route}></DataGridTable>
         </AdminLayout>
     </>
 }
