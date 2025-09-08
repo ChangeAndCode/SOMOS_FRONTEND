@@ -20,6 +20,14 @@ export default function Form({ show, setShow, fields, data, route, method, editI
         }
     }, [data]);
 
+    // Al abrir el formulario, repoblar desde `data` o limpiar si no hay `data`.
+    // Esto cubre el caso de reabrir el mismo registro donde la ref de `data` no cambia.
+    useEffect(() => {
+        if (show) {
+            setFormData(data || initialFormState);
+        }
+    }, [show, editId]);
+
     // Limpiar URLs de objetos cuando el componente se desmonte
     useEffect(() => {
         return () => {
@@ -111,13 +119,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             setFormData(initialFormState);
             setFiles([]);
         } catch (error) {
-            console.error("Error al enviar el formulario:", error.message);
-            
-            // Manejar errores de autenticación
-            if (error.message.includes('Token inválido') || 
-                error.message.includes('Unauthorized') || 
-                error.message.includes('Token no proporcionado')) {
-            } 
+            console.error("Error al enviar el formulario:", error.message); 
         }
     };
 
