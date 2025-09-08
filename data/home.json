@@ -4,23 +4,23 @@
     "logos": [
       {
         "name": "coprev-logo",
-        "link": "./logos/coprev.jpeg"
+        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/coprev.jpg"
       },
       {
         "name": "somos-logo_1",
-        "link": "./logos/somos.png"
+        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos.png"
       },
       {
         "name": "red-emprende-logo",
-        "link": "./logos/red-emprende.png"
+        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/red-emprende.png"
       },
       {
         "name": "somos-logo_2",
-        "link": "./logos/somos.png"
+        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos.png"
       },
       {
         "name": "redpro-logo",
-        "link": "./logos/redpro.png"
+        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/redpro.png"
       }
     ]
   },
@@ -87,7 +87,7 @@
       "image": [
         {
           "name": "event",
-          "link": "./event3.jpg"
+          "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event3.jpg"
         }
       ]
     },
@@ -99,7 +99,7 @@
       "image": [
         {
           "name": "event",
-          "link": "./event.jpg"
+          "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event.jpg"
         }
       ]
     },
@@ -111,7 +111,7 @@
       "image": [
         {
           "name": "event",
-          "link": "./event3.jpg"
+          "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event3.jpg"
         }
       ]
     },
@@ -123,7 +123,7 @@
       "image": [
         {
           "name": "event",
-          "link": "./event.jpg"
+          "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event.jpg"
         }
       ]
     }

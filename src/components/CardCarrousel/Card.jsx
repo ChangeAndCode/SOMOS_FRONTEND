@@ -1,4 +1,5 @@
 export default function Card ({item, imgRoute, onClick}) {
+
     return <>
         <div className="card" onClick={ onClick }>
                 <p className="date">{item.date}</p>

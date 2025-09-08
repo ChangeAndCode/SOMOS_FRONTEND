@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import Card from "./Card"
 import './style.css'
 import DetailedCard from "./DetailedCard"
-
 export default function CardCarrousel ({array}){
 
     const [selectedCard, setSelectedCard] = useState(null)
