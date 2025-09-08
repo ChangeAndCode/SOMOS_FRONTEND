@@ -20,13 +20,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
         }
     }, [data]);
 
-    // Al abrir el formulario, repoblar desde `data` o limpiar si no hay `data`.
-    // Esto cubre el caso de reabrir el mismo registro donde la ref de `data` no cambia.
-    useEffect(() => {
-        if (show) {
-            setFormData(data || initialFormState);
-        }
-    }, [show, editId]);
+    // Nota: evitamos forzar repoblado al abrir para no pisar cambios más recientes.
 
     // Limpiar URLs de objetos cuando el componente se desmonte
     useEffect(() => {
@@ -110,13 +104,15 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             setShow(false);
             if (method === "POST") {
                 setData((prevData) => [...prevData, json]);
+                // limpiar al crear
+                setFormData(initialFormState);
             } else {
+                // actualizar local y mantener formulario sincronizado con respuesta
                 setData((prevData) =>
                     prevData.map((item) => (item._id === editId ? { ...item, ...json } : item))
                 );
+                setFormData(prev => ({ ...prev, ...json }));
             }
-            // Limpiar formulario después de enviar
-            setFormData(initialFormState);
             setFiles([]);
         } catch (error) {
             console.error("Error al enviar el formulario:", error.message); 
