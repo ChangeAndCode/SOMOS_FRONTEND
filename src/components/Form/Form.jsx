@@ -1,5 +1,5 @@
 import './style.css'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetcher } from '../../utils/fetcher';
 
 
@@ -13,6 +13,14 @@ export default function Form({ show, setShow, fields, data, route, method, editI
     }, {});
 
     const [formData, setFormData] = useState(initialFormState);
+
+    // Helper único para formatear fechas a "YYYY-MM-DD"
+    const formatDateYYYYMMDD = (value) => {
+        if (!value) return '';
+        const dateObj = new Date(value);
+        if (isNaN(dateObj)) return value;
+        return dateObj.toISOString().split('T')[0];
+    };
 
     useEffect(() => {
         if (data) {
@@ -40,7 +48,6 @@ export default function Form({ show, setShow, fields, data, route, method, editI
         ...formData,
         [e.target.name]: e.target.value,
         });
-        console.log("FormData:", formData)
     };
 
     const handleSubmit = async (e) => {
@@ -54,14 +61,6 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             // Preparar el body SIEMPRE con FormData (haya o no archivos)
             const form = new FormData();
 
-            // Helper para normalizar fechas como "YYYY-MM-DD"
-            const toYyyyMmDd = (value) => {
-                if (!value) return '';
-                const dateObj = new Date(value);
-                if (isNaN(dateObj)) return value;
-                return dateObj.toISOString().split('T')[0];
-            };
-
             // Agregar campos (excepto previews de imágenes)
             Object.entries(formData).forEach(([key, value]) => {
                 if (key === 'images') return; // evitar previews/urls temporales
@@ -71,7 +70,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
 
                 // Convertir fechas
                 if (fieldDef?.type === 'date' && value) {
-                    normalized = toYyyyMmDd(value);
+                    normalized = formatDateYYYYMMDD(value);
                 }
 
                 // Para arrays/objetos, mandar JSON.stringify([...])
@@ -151,23 +150,26 @@ export default function Form({ show, setShow, fields, data, route, method, editI
     };
 
     const removeImage = (index) => {
-        const newFiles = files.filter((_, i) => i !== index);
-        const newPreviews = formData.images?.filter((_, i) => i !== index) || [];
-        
-        // Liberar la URL del objeto que se elimina
-        if (formData.images?.[index]?.preview) {
-            URL.revokeObjectURL(formData.images[index].preview);
+        const target = formData.images?.[index];
+
+        // Si es un archivo nuevo (tiene 'file'), eliminar por referencia del array de archivos
+        const updatedFiles = target?.file
+            ? files.filter(f => f !== target.file)
+            : files;
+
+        // Liberar la URL del objeto que se elimina si existe
+        if (target?.preview) {
+            URL.revokeObjectURL(target.preview);
         }
-        
-        setFiles(newFiles);
-        setFormData(prev => ({ ...prev, images: newPreviews }));
+
+        const updatedImages = (formData.images || []).filter((_, i) => i !== index);
+
+        setFiles(updatedFiles);
+        setFormData(prev => ({ ...prev, images: updatedImages }));
     };
 
 
-    const formatDateForInput = (dateString) => {
-    if (!dateString) return '';
-    return new Date(dateString).toISOString().split('T')[0]; // "YYYY-MM-DD"
-    };
+    // Usamos formatDateYYYYMMDD también para el valor de inputs tipo fecha
 
     return <>
         
@@ -183,7 +185,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
                         name={name}
                         type={type}
                         placeholder={placeholder}
-                        value={type === 'date' ? formatDateForInput(formData[name]) : (formData[name] || '')}
+                        value={type === 'date' ? formatDateYYYYMMDD(formData[name]) : (formData[name] || '')}
                         onChange={handleChange}
                         required={required}
                         style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif'}}
@@ -192,7 +194,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             ))}
 
                 <div className='previewImgs'>
-                    <p>Imágenes ({files.length})</p>
+                    <p>Imágenes ({formData.images?.length || 0})</p>
                     {formData.images && formData.images.length > 0 ? (
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '10px', marginBottom: '10px' }}>
                             {formData.images.map((imgData, index) => (
@@ -210,6 +212,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
                                     <button
                                         type="button"
                                         onClick={() => removeImage(index)}
+                                        aria-label="Eliminar imagen"
                                         style={{
                                             position: 'absolute',
                                             top: '2px',
