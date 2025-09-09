@@ -1,9 +1,10 @@
 import FooterData from "../../../data/footer.json";
 import { useTheme } from "../../context/ThemeContext";
 import NavLinks from "../navLinks";
+import images from "../../../data/images.json";
 
 export default function Footer() {
-  const baseUrl = import.meta.env.BASE_URL;
+  const baseUrl = 'images.images.socialMediaIcons.';
   const { darkMode } = useTheme();
   return (
     <>
@@ -26,8 +27,8 @@ export default function Footer() {
                     <img
                       src={
                         darkMode
-                          ? `${baseUrl}${item.image_black}`
-                          : `${baseUrl}${item.image_white}`
+                          ? item.image_black
+                          : item.image_white
                       }
                       alt="logo"
                       className="xs:w-10 md:w-15 hover:scale-110"

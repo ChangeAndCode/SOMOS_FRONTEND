@@ -3,6 +3,7 @@ import './style.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { fetcher } from '../../utils/fetcher';
 import { useAuth } from '../../context/AuthContext';
+import images from '../../../data/images.json';
 
 export default function Login() {
 
@@ -38,7 +39,7 @@ export default function Login() {
             <section id='login'>
                 <form onSubmit={handleLogin}>
                     <Link to='/'>
-                        <img id='login-logo' src="./logos/somos-dark.png" alt="" />
+                        <img id='login-logo' src={images.images.logos['somos-dark.png']} alt="" />
                     </Link>
                     
                     <h2>Bienvenido al panel de administración</h2>
@@ -57,7 +58,7 @@ export default function Login() {
                     <button type='submit'>Iniciar sesión</button>
                     
                 </form>
-                <img src="./event2024.jpg" alt="" />
+                <img src={images.images.events['event2024.jpg']} alt="" />
             </section>
         
         </article> 
