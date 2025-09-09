@@ -1,11 +1,5 @@
 export async function fetcher(endpoint, options = {}) {
-
-    const host = 'luckysw.xyz'
-    //const host = "miniature-disco-wgwg9p6wj9q2vgwr-3000.app.github.dev"   
-    // const host = 'localhost:3000'
-    const url = "https://" + host + "/" + endpoint
-    // const url = "http://" + host + "/" + endpoint
-
+    const url = import.meta.env.VITE_URL + endpoint;
     try {
         const isFormData = options.body instanceof FormData;
         const defaultHeaders = {

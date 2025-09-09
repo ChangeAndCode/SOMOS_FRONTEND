@@ -80,7 +80,7 @@ export default function DataGridTable( {fields, tableFields, data, setData, rout
               {item.title? <h3> {item.title}</h3> : <></>}
               {item.startDate && item.endDate && (<>
                 <p>Fecha de inicio: {dateFormatter(item.startDate)}</p>
-                <p>Fecha de cuerre: {dateFormatter(item.endDate)}</p>
+                <p>Fecha de cierre: {dateFormatter(item.endDate)}</p>
               </>)}
               {item.date ? <p>Fecha de inicio: {dateFormatter(item.date)}</p> : null}
               {item.message? <p>{item.message}</p> : <></>}
