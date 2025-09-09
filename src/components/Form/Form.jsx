@@ -5,8 +5,8 @@ import { fetcher } from '../../utils/fetcher';
 
 export default function Form({ show, setShow, fields, data, route, method, editId, setData, submitText = 'Enviar', formRef }) {
     const [files, setFiles] = useState([]);
+    const [deletedImages, setDeletedImages] = useState([]);
     
-    // fields: array de objetos { name, label, type, placeholder, required }    
     const initialFormState = fields.reduce((acc, field) => {
         acc[field.name] = '';
         return acc;
@@ -14,7 +14,6 @@ export default function Form({ show, setShow, fields, data, route, method, editI
 
     const [formData, setFormData] = useState(initialFormState);
 
-    // Helper único para formatear fechas a "YYYY-MM-DD"
     const formatDateYYYYMMDD = (value) => {
         if (!value) return '';
         const dateObj = new Date(value);
@@ -25,12 +24,10 @@ export default function Form({ show, setShow, fields, data, route, method, editI
     useEffect(() => {
         if (data) {
             setFormData(data);
+            setDeletedImages([]);
         }
     }, [data]);
 
-    // Nota: evitamos forzar repoblado al abrir para no pisar cambios más recientes.
-
-    // Limpiar URLs de objetos cuando el componente se desmonte
     useEffect(() => {
         return () => {
             if (formData.images) {
@@ -58,22 +55,18 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             let needsId = method === "PUT" && !route.endsWith(`/${editId}`);
             let url = `${route}${needsId ? `/${editId}` : ""}`;
 
-            // Preparar el body SIEMPRE con FormData (haya o no archivos)
             const form = new FormData();
 
-            // Agregar campos (excepto previews de imágenes)
             Object.entries(formData).forEach(([key, value]) => {
-                if (key === 'images') return; // evitar previews/urls temporales
+                if (key === 'images') return;
 
                 const fieldDef = fields?.find(f => f.name === key);
                 let normalized = value;
 
-                // Convertir fechas
                 if (fieldDef?.type === 'date' && value) {
                     normalized = formatDateYYYYMMDD(value);
                 }
 
-                // Para arrays/objetos, mandar JSON.stringify([...])
                 if (typeof normalized === 'object' && normalized !== null) {
                     normalized = JSON.stringify(normalized);
                 }
@@ -81,19 +74,20 @@ export default function Form({ show, setShow, fields, data, route, method, editI
                 form.append(key, normalized ?? '');
             });
 
-            // Señalizar limpieza total de imágenes cuando no hay archivos nuevos y el array en estado está vacío
             const imagesState = Array.isArray(formData.images) ? formData.images : [];
             if (files.length === 0 && imagesState.length === 0) {
                 form.append('removeAllImages', 'true');
                 form.append('images', JSON.stringify([]));
             }
 
-            // Agregar imágenes nuevas con field name "images"
+            if (deletedImages.length > 0) {
+                form.append('deletedImages', JSON.stringify(deletedImages));
+            }
+
             files.forEach(file => form.append('images', file));
 
             body = form;
 
-            // Usar fetcher unificado para ambos casos
             const json = await fetcher(url, {
                 method,
                 body,
@@ -103,16 +97,15 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             setShow(false);
             if (method === "POST") {
                 setData((prevData) => [...prevData, json]);
-                // limpiar al crear
                 setFormData(initialFormState);
             } else {
-                // actualizar local y mantener formulario sincronizado con respuesta
                 setData((prevData) =>
                     prevData.map((item) => (item._id === editId ? { ...item, ...json } : item))
                 );
                 setFormData(prev => ({ ...prev, ...json }));
             }
             setFiles([]);
+            setDeletedImages([]);
         } catch (error) {
             console.error("Error al enviar el formulario:", error.message); 
         }
@@ -121,7 +114,6 @@ export default function Form({ show, setShow, fields, data, route, method, editI
     const handleImageChange = (e) => {
         const selected = Array.from(e.target.files || []);
         
-        // Validar tipos de archivo
         const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
         const invalidFiles = selected.filter(file => !validTypes.includes(file.type));
         
@@ -130,7 +122,6 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             return;
         }
         
-        // Agregar nuevos archivos a los existentes
         const newFiles = [...files, ...selected];
         const newPreviews = selected.map(f => ({
             file: f,
@@ -145,19 +136,20 @@ export default function Form({ show, setShow, fields, data, route, method, editI
             images: [...(prev.images || []), ...newPreviews]
         }));
         
-        // Limpiar el input para permitir seleccionar los mismos archivos nuevamente si es necesario
         e.target.value = '';
     };
 
     const removeImage = (index) => {
         const target = formData.images?.[index];
 
-        // Si es un archivo nuevo (tiene 'file'), eliminar por referencia del array de archivos
+        if (target && !target.file && typeof target === 'string') {
+            setDeletedImages(prev => [...prev, target]);
+        }
+
         const updatedFiles = target?.file
             ? files.filter(f => f !== target.file)
             : files;
 
-        // Liberar la URL del objeto que se elimina si existe
         if (target?.preview) {
             URL.revokeObjectURL(target.preview);
         }
@@ -167,9 +159,6 @@ export default function Form({ show, setShow, fields, data, route, method, editI
         setFiles(updatedFiles);
         setFormData(prev => ({ ...prev, images: updatedImages }));
     };
-
-
-    // Usamos formatDateYYYYMMDD también para el valor de inputs tipo fecha
 
     return <>
         
