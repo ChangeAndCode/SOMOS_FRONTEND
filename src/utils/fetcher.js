@@ -1,29 +1,33 @@
-import { useAuth } from "../context/AuthContext";
-
 export async function fetcher(endpoint, options = {}) {
-
-    const host = 'luckysw.xyz'
-    //const host = "miniature-disco-wgwg9p6wj9q2vgwr-3000.app.github.dev"   
-    //const host = 'localhost:3000'
-    const url = "https://" + host + "/" + endpoint
-
+    const url = import.meta.env.VITE_URL + endpoint;
     try {
+        const isFormData = options.body instanceof FormData;
         const defaultHeaders = {
-            'Content-Type': 'application/json',
-            // Agrega Authorization si usas JWT
-            ...(options.auth && {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-            }),
+            ...(!isFormData && { 'Content-Type': 'application/json' }),
+            ...(options.auth && { Authorization: `Bearer ${localStorage.getItem('token')}` }),
         };
+        
         const response = await fetch(url, {
             ...options,
             headers: {
                 ...defaultHeaders,
                 ...(options.headers || {}),
             },
-        })
+        });
 
-        const data = await response.json();
+        let data = {};
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+            const text = await response.text();
+            if (text.trim()) {
+                try {
+                    data = JSON.parse(text);
+                } catch (_e) {
+                    data = { message: "Respuesta inválida del servidor" };
+                }
+            }
+        }
+
         if (!response.ok) {
             const message = data?.message || 'Error desconocido';
             throw new Error(message);
