@@ -1,0 +1,45 @@
+{
+  "uploadDate": "2025-09-08T21:26:25.900Z",
+  "baseUrl": "https://res.cloudinary.com/dintpt52z/image/upload",
+  "images": {
+    "events": {
+      "event.jpg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event.jpg",
+      "event2024.jpg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event2024.jpg",
+      "event3.jpg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366742/somos/root/event3.jpg"
+    },
+    "logos": {
+      "coprev.jpeg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/coprev.jpg",
+      "red-emprende.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/red-emprende.png",
+      "redpro.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/redpro.png",
+      "somos-dark.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos-dark.png",
+      "somos-dark_short_margin.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos-dark_short_margin.png",
+      "somos.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos.png"
+    },
+    "socialMediaIcons": {
+      "e_black.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366776/somos/images/socialMediaIcons/e_black.png",
+      "e_white.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366779/somos/images/socialMediaIcons/e_white.png",
+      "f_black.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366779/somos/images/socialMediaIcons/f_black.png",
+      "f_white.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366779/somos/images/socialMediaIcons/f_white.png",
+      "i_black.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366779/somos/images/socialMediaIcons/i_black.png",
+      "i_white.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366779/somos/images/socialMediaIcons/i_white.png",
+      "w_black.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366781/somos/images/socialMediaIcons/w_black.png",
+      "w_white.png": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366781/somos/images/socialMediaIcons/w_white.png"
+    },
+    "icons": {
+      "chart-donut.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366741/somos/icons/chart-donut.svg",
+      "contact.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366741/somos/icons/contact.svg",
+      "folded-flag.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366744/somos/icons/folded-flag.svg",
+      "icon1.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366744/somos/icons/icon1.svg",
+      "icon2.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366745/somos/icons/icon2.svg",
+      "icon3.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366744/somos/icons/icon3.svg",
+      "icon4.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366744/somos/icons/icon4.svg",
+      "icon5.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/icon5.svg",
+      "moon.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/moon.svg",
+      "plus.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/plus.svg",
+      "sun-dim.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/sun-dim.svg"
+    },
+    "navigation": {
+      "nav.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/root/nav.svg"
+    }
+  }
+}

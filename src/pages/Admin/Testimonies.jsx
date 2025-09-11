@@ -11,8 +11,9 @@ export default function Testimonies () {
         fetchTestimonies()
     }, [])
 
+    const route = 'api/testimonies'
     async function fetchTestimonies () {
-        const data = await fetcher('api/testimonies', {
+        const data = await fetcher(route, {
             method: 'GET'
         })
         console.log('Fetched testimonies: ', data)
@@ -30,7 +31,7 @@ export default function Testimonies () {
 
     return <>
         <AdminLayout>
-            <DataGridTable data={testimonies} setData={setTestimonies} fields={fields} tableFields={tableFields}></DataGridTable>
+            <DataGridTable data={testimonies} setData={setTestimonies} route={route} fields={fields} tableFields={tableFields}></DataGridTable>
         </AdminLayout>
                
     </>

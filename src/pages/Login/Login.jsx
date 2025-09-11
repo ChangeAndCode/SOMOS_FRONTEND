@@ -3,6 +3,7 @@ import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 import { fetcher } from "../../utils/fetcher";
 import { useAuth } from "../../context/AuthContext";
+import images from "../../../data/images.json";
 
 export default function Login() {
   const [email, setEmail] = useState("");

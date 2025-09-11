@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ThemeToggleButton from "../ThemeToggleBtn";
 import { useEffect, useRef, useState } from "react";
+import images from "../../../data/images.json";
 
 export default function Nav() {
   const [showIcons, setShowIcons] = useState(false);
@@ -55,7 +56,7 @@ export default function Nav() {
         {/* Logo */}
         <Link to="/">
           <img
-            src="./logos/somos-dark_short_margin.png"
+            src={images.images.logos['somos-dark_short_margin.png']}
             alt="logo"
             className="w-[180px] md:w-[240px]"
           />
