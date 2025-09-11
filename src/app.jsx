@@ -11,6 +11,9 @@ import Programs from './pages/Programs/Programs';
 import Projects from './pages/Projects/Projects';
 import Testimonies from './pages/Testimonies/Testimonies';
 import Results from './pages/Results/Results';
+import Sumate from './pages/Sumate/Sumate';
+import DonationSection from './pages/Sumate/components/DonationSection';
+import Voluntareer from './pages/Sumate/components/VolunteerSection';
 
 import AdminProjects from './pages/Admin/Projects'
 import AdminPrograms from './pages/Admin/Programs'
@@ -31,6 +34,10 @@ export default function App() {
           <Route path='/transparencia' element={<Transparency/>}></Route>
           <Route path='/testimonios' element={<Testimonies/>}></Route>
           <Route path='/resultados' element={<Results/>}></Route>
+          <Route path='/sumate' element={<Sumate/>}></Route>
+          <Route path='/sumate/donacion' element={<DonationSection/>}></Route>
+          <Route path='/sumate/voluntariado' element={<Voluntareer/>}></Route>
+
 
           <Route path='/admin/proyectos' element={<ProtectedRoute><AdminProjects/></ProtectedRoute>}></Route>
           <Route path='/admin/programas' element={<ProtectedRoute><AdminPrograms/></ProtectedRoute>}></Route>

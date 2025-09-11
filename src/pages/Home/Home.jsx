@@ -6,6 +6,7 @@ import Statistics from "./components/statistics";
 import Events from "./components/events";
 import HomeData from "../../../data/home.json";
 import images from "../../../data/images.json";
+import Sumate from "../Sumate/Sumate";
 
 export default function Home() {
   return (
@@ -31,6 +32,8 @@ export default function Home() {
       <Colaboration data={HomeData.colaboration}/>
       <Statistics data={HomeData.statistics} />
       <Events data={HomeData.events} />
+      <Sumate />
+
       <Footer />
     </>
   );
