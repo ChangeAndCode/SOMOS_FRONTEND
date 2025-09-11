@@ -76,7 +76,7 @@ export default function DonationSection() {
                                 <span className="font-semibold text-gray-800 mb-1 sm:mb-0">{item.label}:</span>
                                 <span className="font-mono text-gray-600 mb-2 sm:mb-0 text-sm sm:text-base">{item.value}</span>
                                 <button 
-                                    className="bg-[#00aca6] hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded-md transition-colors duration-200 self-start sm:self-auto"
+                                    className="bg-[#00aca6] hover:bg-[#057470] text-white text-sm px-4 py-2 rounded-md transition-colors duration-200 self-start sm:self-auto"
                                     onClick={() => copyToClipboard(item.value)}
                                 >
                                     Copiar
