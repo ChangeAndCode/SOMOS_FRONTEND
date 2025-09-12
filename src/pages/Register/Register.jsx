@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { fetcher } from "../../utils/fetcher";
 import { useAuth } from "../../context/AuthContext";
+import images from "../../../data/images.json";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -73,7 +74,7 @@ export default function Register() {
 
           <button type="submit">Registrarse</button>
         </form>
-        <img src="./event2024.jpg" alt="" />
+          <img src={images.images.events['event2024.jpg']} alt="" />
       </section>
     </article>
   );
