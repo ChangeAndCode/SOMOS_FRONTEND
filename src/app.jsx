@@ -12,6 +12,9 @@ import Programs from './pages/Programs/Programs';
 import Projects from './pages/Projects/Projects';
 import Testimonies from './pages/Testimonies/Testimonies';
 import Results from './pages/Results/Results';
+import Sumate from './pages/Sumate/Sumate';
+import DonationSection from './pages/Sumate/components/DonationSection';
+import Voluntareer from './pages/Sumate/components/VolunteerSection';
 
 import AdminProjects from './pages/Admin/Projects'
 import AdminPrograms from './pages/Admin/Programs'
@@ -25,15 +28,18 @@ export default function App() {
     <React.StrictMode>
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/eventos" element={<Events />}></Route>
-          <Route path="/proyectos" element={<Projects />}></Route>
-          <Route path="/programas" element={<Programs />}></Route>
-          <Route path="/transparencia" element={<Transparency />}></Route>
-          <Route path="/testimonios" element={<Testimonies />}></Route>
-          <Route path="/resultados" element={<Results />}></Route>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/register' element={<Register />}></Route>
+          <Route path='/eventos' element={<Events/>}></Route>
+          <Route path='/proyectos' element={<Projects/>}></Route>
+          <Route path='/programas' element={<Programs/>}></Route>
+          <Route path='/transparencia' element={<Transparency/>}></Route>
+          <Route path='/testimonios' element={<Testimonies/>}></Route>
+          <Route path='/resultados' element={<Results/>}></Route>
+          <Route path='/sumate' element={<Sumate/>}></Route>
+          <Route path='/sumate/donacion' element={<DonationSection/>}></Route>
+          <Route path='/sumate/voluntariado' element={<Voluntareer/>}></Route>
 
           <Route
             path="/admin/proyectos"
