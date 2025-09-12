@@ -75,7 +75,7 @@ export default function Login() {
               </Link>
             </div>
           </form>
-          <img src="./event2024.jpg" alt="" />
+          <img src={images.images.events['event2024.jpg']} alt="" />
         </section>
       </article>
     </>
