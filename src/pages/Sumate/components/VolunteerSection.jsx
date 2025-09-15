@@ -4,6 +4,7 @@ import { FormTextArea } from './FormTextArea';
 import { FormSelect } from './FormSelect';
 import { SubmitButton } from './SubmitButton';
 import { StatusMessage } from './StatusMessage';
+import { fetcher } from '../../../utils/fetcher';
 
 export default function VolunteerSection() {
     const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ export default function VolunteerSection() {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(''); // 'success', 'error', or ''
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -31,27 +33,43 @@ export default function VolunteerSection() {
         }));
     };
 
-    const simulateEmailSending = async () => {
-        // Simular envío de email (aquí normalmente harías la llamada al backend)
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Simulando envío de email con datos:', formData);
-                resolve(true);
-            }, 2000);
-        });
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus('');
+        setErrorMessage('');
+
+        // Validación básica del lado del cliente
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+            setSubmitStatus('error');
+            setErrorMessage('Por favor, completa todos los campos obligatorios.');
+            setIsSubmitting(false);
+            return;
+        }
 
         try {
-            // Simular el envío del formulario
-            await simulateEmailSending();
+            // Limpiar datos antes de enviar (remover campos vacíos opcionales)
+            const cleanedData = Object.entries(formData).reduce((acc, [key, value]) => {
+                if (value && value.trim() !== '') {
+                    acc[key] = value.trim();
+                }
+                return acc;
+            }, {});
+
+            // Enviar datos al backend usando fetcher
+            const response = await fetcher('api/sumate/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cleanedData)
+            });
+
+            console.log('✅ Formulario de voluntario enviado exitosamente:', response);
             
             setSubmitStatus('success');
-            // Resetear el formulario
+            
+            // Resetear el formulario después del éxito
             setFormData({
                 firstName: '',
                 lastName: '',
@@ -65,9 +83,19 @@ export default function VolunteerSection() {
                 motivation: '',
                 comments: ''
             });
+
         } catch (error) {
-            console.error('Error enviando formulario:', error);
+            console.error('Error enviando formulario de voluntario:', error);
             setSubmitStatus('error');
+            
+            // Mostrar mensaje de error específico si está disponible
+            if (error.message) {
+                setErrorMessage(error.message);
+            } else if (error.errors && Array.isArray(error.errors)) {
+                setErrorMessage(error.errors.map(err => err.msg).join(', '));
+            } else {
+                setErrorMessage('Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.');
+            }
         } finally {
             setIsSubmitting(false);
         }
@@ -89,8 +117,8 @@ export default function VolunteerSection() {
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
                     <div className="text-center mb-8">
-                        <h2 className="text-2xl sm:text-3xl font-bold text-[#8a3677] mb-4">Únete como Voluntario</h2>
-                        <p className="text-base sm:text-lg text-gray-600 leading-relaxed">¡Queremos conocerte! Completa este formulario y nos pondremos en contacto contigo.</p>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-[#8a3677] mb-4">Súmate como Voluntario</h2>
+                        
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-8">
@@ -185,7 +213,7 @@ export default function VolunteerSection() {
 
                         {submitStatus === 'error' && (
                             <StatusMessage type="error" title="Error al enviar la solicitud">
-                                <p>Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente.</p>
+                                <p>{errorMessage || 'Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente.'}</p>
                             </StatusMessage>
                         )}
                     </form>
