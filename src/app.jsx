@@ -18,7 +18,7 @@ import AdminPrograms from './pages/Admin/Programs'
 import AdminEvents from './pages/Admin/Events'
 import AdminTestimonies from './pages/Admin/Testimonies'
 import AdminNotes from './pages/Admin/Notes'
-
+import AdminTransparency from "./pages/Admin/Transparency";
 
 export default function App() {
   return (
@@ -67,6 +67,14 @@ export default function App() {
               </ProtectedRoute>
             }
           ></Route>
+          <Route
+            path="/admin/transparencia"
+            element={
+              <ProtectedRoute>
+                <AdminTransparency />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin/notas"
             element={
