@@ -6,6 +6,8 @@ import { fetcher } from '../../utils/fetcher';
 export default function Form({ show, setShow, fields, data, route, method, editId, setData, submitText = 'Enviar', formRef }) {
     const [files, setFiles] = useState([]);
     const [deletedImages, setDeletedImages] = useState([]);
+    const [documents, setDocuments] = useState([]);
+    const [deletedDocuments, setDeletedDocuments] = useState([]);
     
     const initialFormState = fields.reduce((acc, field) => {
         acc[field.name] = '';
@@ -59,8 +61,12 @@ export default function Form({ show, setShow, fields, data, route, method, editI
 
             Object.entries(formData).forEach(([key, value]) => {
                 if (key === 'images') return;
-
+                
                 const fieldDef = fields?.find(f => f.name === key);
+                
+                // Skip file fields - they're handled separately
+                if (fieldDef?.type === 'file') return;
+                
                 let normalized = value;
 
                 if (fieldDef?.type === 'date' && value) {
@@ -84,6 +90,11 @@ export default function Form({ show, setShow, fields, data, route, method, editI
                 form.append('deletedImages', JSON.stringify(deletedImages));
             }
 
+            // Manejar archivos de documentos
+            documents.forEach(doc => {
+                form.append(doc.fieldName, doc.file);
+            });
+
             files.forEach(file => form.append('images', file));
 
             body = form;
@@ -105,7 +116,9 @@ export default function Form({ show, setShow, fields, data, route, method, editI
                 setFormData(prev => ({ ...prev, ...json }));
             }
             setFiles([]);
+            setDocuments([]);
             setDeletedImages([]);
+            setDeletedDocuments([]);
         } catch (error) {
             console.error("Error al enviar el formulario:", error.message); 
         }
@@ -139,6 +152,58 @@ export default function Form({ show, setShow, fields, data, route, method, editI
         e.target.value = '';
     };
 
+    const handleDocumentChange = (e) => {
+        const fieldName = e.target.name;
+        const selected = Array.from(e.target.files || []);
+        
+        if (selected.length === 0) return;
+        
+        // Obtener tipos válidos del campo específico
+        const field = fields.find(f => f.name === fieldName);
+        const acceptedTypes = field?.accept || '';
+        
+        // Convertir extensiones a MIME types
+        const extensionToMime = {
+            '.pdf': 'application/pdf',
+            '.doc': 'application/msword',
+            '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            '.xls': 'application/vnd.ms-excel',
+            '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            '.ppt': 'application/vnd.ms-powerpoint',
+            '.pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+            '.csv': 'text/csv',
+            '.txt': 'text/plain',
+            '.zip': 'application/zip'
+        };
+
+        const validTypes = acceptedTypes.split(',').map(ext => extensionToMime[ext.trim()]).filter(Boolean);
+        
+        const invalidFiles = selected.filter(file => !validTypes.includes(file.type));
+        
+        if (invalidFiles.length > 0) {
+            alert(`Solo se permiten archivos de tipo: ${acceptedTypes}`);
+            return;
+        }
+        
+        const newDocuments = selected.map(f => ({
+            file: f,
+            name: f.name,
+            size: f.size,
+            type: f.type,
+            fieldName: fieldName
+        }));
+        
+        setDocuments(prev => [...prev.filter(doc => doc.fieldName !== fieldName), ...newDocuments]);
+        
+        // Actualizar formData con un indicador de que hay archivos
+        setFormData(prev => ({ 
+            ...prev, 
+            [fieldName]: newDocuments
+        }));
+        
+        e.target.value = '';
+    };
+
     const removeImage = (index) => {
         const target = formData.images?.[index];
 
@@ -164,23 +229,102 @@ export default function Form({ show, setShow, fields, data, route, method, editI
         
         {show && (
         <form onSubmit={handleSubmit} ref={formRef} className='form'>
-            {fields.map(({ name, label, type = 'text', placeholder = '', required = false }) => (
-                <div key={name}>
-                    <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
-                        {label}
-                    </label>
-                    <input
-                        id={name}
-                        name={name}
-                        type={type}
-                        placeholder={placeholder}
-                        value={type === 'date' ? formatDateYYYYMMDD(formData[name]) : (formData[name] || '')}
-                        onChange={handleChange}
-                        required={required}
-                        style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif'}}
-                    />
-                </div>
-            ))}
+            {fields.map(({ name, label, type = 'text', placeholder = '', required = false, accept, options }) => {
+                if (type === 'file') {
+                    return (
+                        <div key={name}>
+                            <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
+                                {label}
+                            </label>
+                            <input
+                                id={name}
+                                name={name}
+                                type="file"
+                                accept={accept}
+                                onChange={handleDocumentChange}
+                                required={required}
+                                style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif'}}
+                            />
+                            {formData[name] && formData[name].length > 0 && (
+                                <div style={{ marginTop: '10px', padding: '8px', backgroundColor: '#f0f9ff', border: '1px solid #bfdbfe', borderRadius: '4px' }}>
+                                    <p style={{ margin: '0 0 8px 0', fontWeight: 'bold', color: '#1e40af' }}>
+                                        ✅ Documentos seleccionados ({formData[name].length}):
+                                    </p>
+                                    <ul style={{ fontSize: '12px', color: '#374151', margin: 0, paddingLeft: '16px' }}>
+                                        {formData[name].map((doc, index) => (
+                                            <li key={index} style={{ marginBottom: '4px' }}>
+                                                📄 <strong>{doc.name}</strong> ({(doc.size / 1024).toFixed(1)}KB)
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}</div>
+                    );
+                }
+
+                if (type === 'select') {
+                    return (
+                        <div key={name}>
+                            <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
+                                {label}
+                            </label>
+                            <select
+                                id={name}
+                                name={name}
+                                value={formData[name] || ''}
+                                onChange={handleChange}
+                                required={required}
+                                style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif'}}
+                            >
+                                <option value="">Seleccionar...</option>
+                                {options?.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    );
+                }
+
+                if (type === 'textarea') {
+                    return (
+                        <div key={name}>
+                            <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
+                                {label}
+                            </label>
+                            <textarea
+                                id={name}
+                                name={name}
+                                placeholder={placeholder}
+                                value={formData[name] || ''}
+                                onChange={handleChange}
+                                required={required}
+                                rows="4"
+                                style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif', resize: 'vertical'}}
+                            />
+                        </div>
+                    );
+                }
+
+                return (
+                    <div key={name}>
+                        <label htmlFor={name} style={{ display: 'block', marginBottom: '.3rem' }}>
+                            {label}
+                        </label>
+                        <input
+                            id={name}
+                            name={name}
+                            type={type}
+                            placeholder={placeholder}
+                            value={type === 'date' ? formatDateYYYYMMDD(formData[name]) : (formData[name] || '')}
+                            onChange={handleChange}
+                            required={required}
+                            style={{ padding: '.5rem', width: '100%', fontFamily: 'sans-serif'}}
+                        />
+                    </div>
+                );
+            })}
 
                 <div className='previewImgs'>
                     <p>Imágenes ({formData.images?.length || 0})</p>

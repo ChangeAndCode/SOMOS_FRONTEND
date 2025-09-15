@@ -27,15 +27,35 @@ export default function TransparencyPublic() {
 
   async function fetchDocs() {
     setLoading(true);
-    const params = new URLSearchParams();
-    if (q) params.set("q", q);
-    if (category) params.set("category", category);
-    if (year) params.set("year", year);
-    if (sort) params.set("sort", sort);
-    const res = await fetch(`${API}/api/transparency?${params.toString()}`);
-    const data = await res.json();
-    setItems(data.items || data); // soporta ambos formatos
-    setLoading(false);
+    try {
+      console.log('Fetching transparency documents...');
+      const params = new URLSearchParams();
+      if (q) params.set("q", q);
+      if (category) params.set("category", category);
+      if (year) params.set("year", year);
+      if (sort) params.set("sort", sort);
+      
+      const url = `${API}api/transparency?${params.toString()}`;
+      console.log('URL:', url);
+      
+      const res = await fetch(url);
+      console.log('Response status:', res.status);
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      
+      const data = await res.json();
+      console.log('Response data:', data);
+      
+      // El backend devuelve { page, total, items }
+      setItems(data.items || []);
+    } catch (error) {
+      console.error('Error fetching transparency docs:', error);
+      setItems([]); // Fallback a array vacío en caso de error
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -45,7 +65,7 @@ export default function TransparencyPublic() {
   return (
     <>
       <Nav />
-      <section className="max-w-6xl mx-auto p-4">
+      <section className="max-w-6xl mx-auto p-4 pt-24">
         <h1 className="text-2xl mb-3">Transparencia</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
@@ -93,6 +113,10 @@ export default function TransparencyPublic() {
         </button>
 
         {loading && <p>Cargando…</p>}
+
+        {!loading && items.length === 0 && (
+          <p className="text-gray-500">No se encontraron documentos.</p>
+        )}
 
         <div className="grid gap-4 md:grid-cols-2">
           {items.map((d) => (

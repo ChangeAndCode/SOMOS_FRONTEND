@@ -42,7 +42,7 @@ export default function AdminTransparency() {
       label: "Archivo",
       type: "file",
       accept: ".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.csv,.txt,.zip",
-      required: true,
+      required: false,
     },
   ];
 
