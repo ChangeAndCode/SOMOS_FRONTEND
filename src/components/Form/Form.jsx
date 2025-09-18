@@ -92,7 +92,7 @@ export default function Form({ show, setShow, fields, data, route, method, editI
 
             // Manejar archivos de documentos
             documents.forEach(doc => {
-                form.append(doc.fieldName, doc.file);
+                form.append('file', doc.file); 
             });
 
             files.forEach(file => form.append('images', file));
