@@ -87,6 +87,9 @@ export default function DataGridTable( {fields, tableFields, data, setData, rout
               {item.content? <p>{item.content}</p> : <></>}
               {item.status? <p>Status: {item.status}</p> : <></>}
               {item.location? <p>Location: {item.location}</p> : <></>}
+              {item.category? <p>Categoría: {item.category}</p> : <></>}
+              {item.period? <p>Periodo: {item.period}</p> : <></>}
+              {item.description? <p>{item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description}</p> : <></>}
               
               
 

@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { fetcher } from "../../utils/fetcher";
-import { useAuth } from "../../context/AuthContext";
-import images from "../../../data/images.json";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { fetcher } from '../../utils/fetcher';
+import { useAuth } from '../../context/AuthContext';
+import images from '../../../data/images.json';
+
 
 export default function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
   const [message, setMessage] = useState(false);
@@ -18,16 +19,16 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const data = await fetcher("api/auth/register", {
-        method: "POST",
+      const data = await fetcher('api/auth/register', {
+        method: 'POST',
         body: JSON.stringify({ name, email, password }),
       });
 
-      console.log("Registro exitoso", data);
+      console.log('Registro exitoso', data);
       login(data); // guarda token + usuario en contexto
-      navigate("/login");
+      navigate('/login');
     } catch (err) {
-      console.log("Register error: ", err.message);
+      console.log('Register error: ', err.message);
       setMessage(err.message);
     }
   };
@@ -74,7 +75,7 @@ export default function Register() {
 
           <button type="submit">Registrarse</button>
         </form>
-          <img src={images.images.events['event2024.jpg']} alt="" />
+        <img src={images.images.events['event2024.jpg']} alt="" />
       </section>
     </article>
   );
