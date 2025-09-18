@@ -23,6 +23,7 @@ Aplicación web desarrollada en React + Vite para digitalizar y transparentar la
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/ChangeAndCode/SOMOS_FRONTEND
+   cd SOMOS_FRONTEND
    ```
 2. Instala las dependencias
    ```bash
@@ -39,24 +40,26 @@ Aplicación web desarrollada en React + Vite para digitalizar y transparentar la
 
 ## Estructura del Proyecto
 
+```text
 src/
-├── app.jsx # Configuración de rutas principales
-├── index.jsx # Punto de entrada
-├── main.css # Estilos globales y Tailwind
-├── context/ # Contextos globales (Auth, Theme)
-├── components/ # Componentes reutilizables (Nav, Footer, Cards, etc.)
-├── pages/ # Páginas principales (Home, Login, Register, Admin, etc.)
-│ ├── Admin/ # Panel de administración (CRUD)
-│ ├── Home/ # Página de inicio y secciones
-│ ├── Events/ # Eventos
-│ ├── Programs/ # Programas
-│ ├── Projects/ # Proyectos
-│ ├── Testimonies/ # Testimonios
-│ ├── Transparency/ # Transparencia institucional
-│ └── Sumate/ # Voluntariado y donaciones
-├── utils/ # Funciones utilitarias
+├── app.jsx                 # Configuración de rutas principales
+├── index.jsx               # Punto de entrada
+├── main.css                # Estilos globales y Tailwind
+├── context/                # Contextos globales (Auth, Theme)
+├── components/             # Componentes reutilizables (Nav, Footer, Cards, etc.)
+├── pages/                  # Páginas principales (Home, Login, Register, Admin, etc.)
+│   ├── Admin/              # Panel de administración (CRUD)
+│   ├── Home/               # Página de inicio y secciones
+│   ├── Events/             # Eventos
+│   ├── Programs/           # Programas
+│   ├── Projects/           # Proyectos
+│   ├── Testimonies/        # Testimonios
+│   ├── Transparency/       # Transparencia institucional
+│   └── Sumate/             # Voluntariado y donaciones
+├── utils/                  # Funciones utilitarias
 public/
-└── data/ # Datos estáticos (json, imágenes, links)
+└── data/                   # Datos estáticos (json, imágenes, links)
+```
 
 ## Flujo de Procesos
 
