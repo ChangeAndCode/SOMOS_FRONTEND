@@ -1,13 +1,13 @@
-import { useState } from "react";
-import "./style.css";
-import { Link, useNavigate } from "react-router-dom";
-import { fetcher } from "../../utils/fetcher";
-import { useAuth } from "../../context/AuthContext";
-import images from "../../../data/images.json";
+import { useState } from 'react';
+import './style.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { fetcher } from '../../utils/fetcher';
+import { useAuth } from '../../context/AuthContext';
+import images from '../../../data/images.json';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setpassword] = useState('');
 
   const navigate = useNavigate();
   const [message, setMessage] = useState(false);
@@ -18,16 +18,16 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const data = await fetcher("api/auth/login", {
-        method: "POST",
+      const data = await fetcher('api/auth/login', {
+        method: 'POST',
         body: JSON.stringify({ email, password }),
       });
 
-      console.log("Login exitoso", data);
+      console.log('Login exitoso', data);
       login(data);
-      navigate("/admin/proyectos");
+      navigate('/admin/proyectos');
     } catch (err) {
-      console.log("Login error: ", err.message);
+      console.log('Login error: ', err.message);
       setMessage(err.message);
     }
   };
@@ -62,7 +62,7 @@ export default function Login() {
               {message && <div className="error">{message}</div>}
               <p>
                 No recuerdas tu contraseña? <br />
-                Contacta un administrador{" "}
+                Contacta un administrador{' '}
               </p>
             </div>
 
@@ -75,7 +75,7 @@ export default function Login() {
               </Link>
             </div>
           </form>
-          <img src="./event2024.jpg" alt="" />
+          <img src={images.images.events['event2024.jpg']} alt="" />
         </section>
       </article>
     </>
