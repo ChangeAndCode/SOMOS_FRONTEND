@@ -130,3 +130,27 @@ export const TestimoniosIcon = (props) => (
     />
   </svg>
 );
+
+export const SumateIcon = (props) => (
+  <svg viewBox="0 0 256 256" fill="currentColor" {...props}>
+    <rect width="256" height="256" fill="none" />
+    <circle
+      cx="128"
+      cy="128"
+      r="96"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="16"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M83.31,124.69a24,24,0,0,1,33.94-33.94L128,101.49l10.75-10.74a24,24,0,0,1,33.94,33.94L128,169.37Z"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="16"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);

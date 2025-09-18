@@ -36,7 +36,9 @@
       "icon5.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/icon5.svg",
       "moon.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/moon.svg",
       "plus.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/plus.svg",
-      "sun-dim.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/sun-dim.svg"
+      "sun-dim.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366747/somos/icons/sun-dim.svg",
+      "donate.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757619257/Donate_hrstm0.png",
+      "raised-hand.svg" : "https://res.cloudinary.com/dintpt52z/image/upload/v1757620494/RisedHand_v19sgl.svg"
     },
     "navigation": {
       "nav.svg": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/root/nav.svg"

@@ -4,6 +4,7 @@ import { fetcher } from '../../utils/fetcher';
 import { useAuth } from '../../context/AuthContext';
 import images from '../../../data/images.json';
 
+
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
