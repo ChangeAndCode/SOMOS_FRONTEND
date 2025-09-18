@@ -5,13 +5,11 @@ import ThemeToggleButton from '../ThemeToggleBtn'
 import { useAuth } from '../../context/AuthContext'
 import images from '../../../data/images.json'
 
-
 export default function AdmiNav() {
     const { logout } = useAuth();
     const navigate = useNavigate();
     return <>
         <nav id='adminnav'>
-
             <Link to='/'>
                 <img id='logo' src={images.images.logos['somos-dark.png']} alt='logo' />
             </Link>
@@ -21,7 +19,5 @@ export default function AdmiNav() {
                 <ThemeToggleButton toogle={true}/>
             </span>
         </nav>
-
-
     </>
 }

@@ -19,7 +19,7 @@ export default function Programs() {
         fetchPrograms()
     }, [])
 
-    return <>
+    return<>
         <Nav/>
         <article className="first">
         <h2>Bienvenido a la pagina programas</h2>

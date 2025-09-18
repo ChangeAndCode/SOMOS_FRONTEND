@@ -33,6 +33,5 @@ export default function Testimonies () {
         <AdminLayout>
             <DataGridTable data={testimonies} setData={setTestimonies} route={route} fields={fields} tableFields={tableFields}></DataGridTable>
         </AdminLayout>
-               
     </>
 }
