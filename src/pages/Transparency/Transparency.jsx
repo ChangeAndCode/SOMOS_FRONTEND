@@ -6,10 +6,13 @@ const API = import.meta.env.VITE_URL || 'http://localhost:3000/';
 
 const CATEGORIES = [
   { value: '', label: 'Todas' },
-  { value: 'financial', label: 'Estados financieros' },
-  { value: 'accountability', label: 'Rendición de cuentas' },
-  { value: 'board', label: 'Info del consejo' },
-  { value: 'other', label: 'Otros' },
+  { value: 'financial', label: 'Presupuesto y gastos' },
+  { value: 'hiring', label: 'Contrataciones' },
+  { value: 'staff', label: 'Personal' },
+  { value: 'regulations', label: 'Normativa' },
+  { value: 'projects', label: 'Proyectos y resultados' },
+  { value: 'access', label: 'Accesos a la información' },
+  { value: 'participation', label: 'Participación ciudadana' },
 ];
 
 export default function TransparencyPublic() {
@@ -18,12 +21,13 @@ export default function TransparencyPublic() {
   const [category, setCategory] = useState('');
   const [year, setYear] = useState('');
   const [sort, setSort] = useState('new');
+  const [fileType, setFileType] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const years = useMemo(() => {
-    const y = new Date().getFullYear();
-    return ['', y, y - 1, y - 2, y - 3];
-  }, []);
+  // const years = useMemo(() => {
+  //   const y = new Date().getFullYear();
+  //   return ['', y, y - 1, y - 2, y - 3];
+  // }, []);
 
   async function fetchDocs() {
     setLoading(true);
@@ -34,6 +38,7 @@ export default function TransparencyPublic() {
       if (category) params.set('category', category);
       if (year) params.set('year', year);
       if (sort) params.set('sort', sort);
+      if (fileType) params.set('fileType', fileType);
 
       const url = `${API}api/transparency?${params.toString()}`;
       console.log('URL:', url);
@@ -68,7 +73,7 @@ export default function TransparencyPublic() {
       <section className="max-w-6xl mx-auto p-4 pt-24">
         <h1 className="text-2xl mb-3">Transparencia</h1>
 
-        {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
@@ -87,30 +92,30 @@ export default function TransparencyPublic() {
             ))}
           </select>
           <select
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            className="border p-2 rounded"
-          >
-            {years.map((y) => (
-              <option key={y} value={y}>
-                {y || 'Todos los años'}
-              </option>
-            ))}
-          </select>
-          <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
             className="border p-2 rounded"
           >
             <option value="new">Más nuevos</option>
             <option value="old">Más antiguos</option>
-            <option value="title">Título (A–Z)</option>
+          </select>
+          <select
+            value={fileType}
+            onChange={(e) => setFileType(e.target.value)}
+            className="border p-2 rounded"
+          >
+            <option value="">Todos los tipos</option>
+            <option value="pdf">PDF</option>
+            <option value="doc">Word</option>
+            <option value="xls">Excel</option>
+            <option value="ppt">PowerPoint</option>
+            <option value="txt">Texto</option>
           </select>
         </div>
 
         <button onClick={fetchDocs} className="border px-4 py-2 rounded mb-4">
           Aplicar filtros
-        </button> */}
+        </button>
 
         {loading && <p>Cargando…</p>}
 
