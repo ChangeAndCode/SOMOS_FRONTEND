@@ -70,94 +70,93 @@ export default function TransparencyPublic() {
   return (
     <>
       <Nav />
-      <section className="max-w-6xl mx-auto p-4 pt-24">
-        <h1 className="text-2xl mb-3">Transparencia</h1>
+      <article className="first">
+        <section className="max-w-6xl mx-auto p-4">
+          <h1 className="text-2xl mb-3">Transparencia</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Buscar por título"
-            className="border p-2 rounded"
-          />
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="border p-2 rounded"
-          >
-            {CATEGORIES.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.label}
-              </option>
-            ))}
-          </select>
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-            className="border p-2 rounded"
-          >
-            <option value="new">Más nuevos</option>
-            <option value="old">Más antiguos</option>
-          </select>
-          <select
-            value={fileType}
-            onChange={(e) => setFileType(e.target.value)}
-            className="border p-2 rounded"
-          >
-            <option value="">Todos los tipos</option>
-            <option value="pdf">PDF</option>
-            <option value="doc">Word</option>
-            <option value="xls">Excel</option>
-            <option value="ppt">PowerPoint</option>
-            <option value="txt">Texto</option>
-          </select>
-        </div>
-
-        <button onClick={fetchDocs} className="border px-4 py-2 rounded mb-4">
-          Aplicar filtros
-        </button>
-
-        {loading && <p>Cargando…</p>}
-
-        {!loading && items.length === 0 && (
-          <p className="text-gray-500">No se encontraron documentos.</p>
-        )}
-
-        <div className="grid gap-4 md:grid-cols-2">
-          {items.map((d) => (
-            <article
-              key={d._id || d.id}
-              className="border rounded p-3 bg-white"
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Buscar por título"
+              className="border p-2 rounded placeholder:whitespace-nowrap placeholder-gray-400"
+            />
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="border p-2 rounded"
             >
-              <h3 className="font-semibold">{d.title}</h3>
-              <p className="text-sm opacity-80">{d.description}</p>
-              <div className="text-xs mt-1 opacity-70">
-                <span>{d.category}</span>
-                {' · '}
-                <span>
-                  {d.publishedAt || d.createdAt
-                    ? new Date(
-                        d.publishedAt || d.createdAt
-                      ).toLocaleDateString()
-                    : ''}
-                </span>
-                {' · '}
-                <span>{d.mimeType?.split('/')[1] || d.fileType}</span>
-              </div>
-              <div className="mt-3">
-                <a
-                  className="underline"
-                  href={d.fileUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ver/Descargar
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+              {CATEGORIES.map((c) => (
+                <option key={c.value} value={c.value}>
+                  {c.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+              className="border p-2 rounded"
+            >
+              <option value="new">Más nuevos</option>
+              <option value="old">Más antiguos</option>
+            </select>
+            <select
+              value={fileType}
+              onChange={(e) => setFileType(e.target.value)}
+              className="border p-2 rounded"
+            >
+              <option value="">Todos los tipos</option>
+              <option value="pdf">PDF</option>
+              <option value="doc">Word</option>
+              <option value="xls">Excel</option>
+              <option value="ppt">PowerPoint</option>
+              <option value="txt">Texto</option>
+            </select>
+          </div>
+
+          <button onClick={fetchDocs} className="border px-4 py-2 rounded mb-4">
+            Aplicar filtros
+          </button>
+
+          {loading && <p>Cargando…</p>}
+
+          {!loading && items.length === 0 && (
+            <p className="text-gray-500">No se encontraron documentos.</p>
+          )}
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {items.map((d) => (
+              <article key={d._id || d.id} className="border rounded p-3">
+                <h3 className="font-semibold">{d.title}</h3>
+                <p className="text-sm opacity-80">{d.description}</p>
+                <div className="text-xs mt-1 opacity-70">
+                  <span>{d.category}</span>
+                  {' · '}
+                  <span>
+                    {d.publishedAt || d.createdAt
+                      ? new Date(
+                          d.publishedAt || d.createdAt
+                        ).toLocaleDateString()
+                      : ''}
+                  </span>
+                  {' · '}
+                  <span>{d.mimeType?.split('/')[1] || d.fileType}</span>
+                </div>
+                <div className="mt-3">
+                  <a
+                    className="underline"
+                    href={d.fileUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver/Descargar
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </article>
     </>
   );
 }

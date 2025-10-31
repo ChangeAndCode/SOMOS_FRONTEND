@@ -1,3 +1,7 @@
 #transparency {
-    padding-left: 48px;
+  padding-left: 48px;
+}
+
+body.dark {
+  background-color: #111827;
 }
