@@ -4,7 +4,6 @@ import { fetcher } from '../../utils/fetcher';
 import { useAuth } from '../../context/AuthContext';
 import images from '../../../data/images.json';
 
-
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,11 +23,9 @@ export default function Register() {
         body: JSON.stringify({ name, email, password }),
       });
 
-      console.log('Registro exitoso', data);
       login(data); // guarda token + usuario en contexto
       navigate('/login');
     } catch (err) {
-      console.log('Register error: ', err.message);
       setMessage(err.message);
     }
   };

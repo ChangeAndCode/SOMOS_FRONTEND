@@ -14,7 +14,6 @@ export default function Events() {
     const data = await fetcher('api/events', {
       method: 'GET',
     });
-    console.log('Fetched events: ', data);
     setEvents(data);
   }
 
