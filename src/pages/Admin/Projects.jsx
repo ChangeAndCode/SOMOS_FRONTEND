@@ -19,7 +19,7 @@ export default function Projects() {
       name: 'description',
       label: 'Descripcion',
       type: 'text',
-      placeholder: 'Insgrese descripcion del proyecto',
+      placeholder: 'Ingrese descripcion del proyecto',
       required: true,
     },
     {

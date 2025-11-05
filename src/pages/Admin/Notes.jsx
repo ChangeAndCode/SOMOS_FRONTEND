@@ -1,5 +1,4 @@
 import AdminLayout from './AdminLayout';
-import CloudinaryTestForm from '../../components/CloudinaryTestForm/CloudinaryTestForm';
 import { useEffect, useState } from 'react';
 import { fetcher } from '../../utils/fetcher';
 import DataGridTable from '../../components/DataGridTable/DataGridTable';
