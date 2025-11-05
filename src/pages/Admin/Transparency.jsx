@@ -63,7 +63,6 @@ export default function AdminTransparency() {
       method: 'GET',
       auth: true,
     });
-    console.log('Fetched transparency docs:', data);
     setDocs(data.items || data);
   }
 

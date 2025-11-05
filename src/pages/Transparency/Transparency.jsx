@@ -32,7 +32,6 @@ export default function TransparencyPublic() {
   async function fetchDocs() {
     setLoading(true);
     try {
-      console.log('Fetching transparency documents...');
       const params = new URLSearchParams();
       if (q) params.set('q', q);
       if (category) params.set('category', category);
@@ -41,17 +40,14 @@ export default function TransparencyPublic() {
       if (fileType) params.set('fileType', fileType);
 
       const url = `${API}api/transparency?${params.toString()}`;
-      console.log('URL:', url);
 
       const res = await fetch(url);
-      console.log('Response status:', res.status);
 
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
 
       const data = await res.json();
-      console.log('Response data:', data);
 
       // El backend devuelve { page, total, items }
       setItems(data.items || []);

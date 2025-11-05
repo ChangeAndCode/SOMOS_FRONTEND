@@ -23,11 +23,9 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      console.log('Login exitoso', data);
       login(data);
       navigate('/admin/proyectos');
     } catch (err) {
-      console.log('Login error: ', err.message);
       setMessage(err.message);
     }
   };

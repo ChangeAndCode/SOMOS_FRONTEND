@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import 'tailwindcss';
 
 /*@tailwind base;
 @tailwind components;
@@ -8,13 +8,6 @@
 html,
 body {
   overflow-x: hidden;
-}
-
-@theme {
-  --breakpoint-xs: 300px;
-  --font-letterpress: "Letterpress", sans-serif;
-  --font-montserrat: "Montserrat", sans-serif;
-  --font-outfit: "Outfit", sans-serif;
 }
 
 /* borde gradiente */
@@ -104,7 +97,7 @@ body.dark-theme {
 
 * {
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Arial Black", sans-serif;
+  font-family: 'Arial Black', sans-serif;
 }
 
 html {
@@ -122,7 +115,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  font-family: "Arial Black", sans-serif;
+  font-family: 'Arial Black', sans-serif;
   font-size: small;
 }
 
@@ -147,81 +140,6 @@ body {
 }
 
 .number {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-@font-face {
-  font-family: "Light";
-  src: url("/fonts/Cocogoose-Pro-Light-trial.ttf");
-}
-
-@font-face {
-  font-family: "Light-italic";
-  src: url("/fonts/Cocogoose-Pro-Light-Italic-trial.ttf");
-}
-
-@font-face {
-  font-family: "Semilight";
-  src: url("/fonts/Cocogoose-Pro-Semilight-trial.ttf");
-}
-
-@font-face {
-  font-family: "Semilight-italic";
-  src: url("/fonts/Cocogoose-Pro-Semilight-Italic-trial.ttf");
-}
-
-@font-face {
-  font-family: "Thin";
-  src: url("/fonts/Cocogoose-Pro-Thin-trial.ttf");
-}
-
-@font-face {
-  font-family: "Thin-italic";
-  src: url("/fonts/Cocogoose-Pro-Thin-Italic-trial.ttf");
-}
-
-@font-face {
-  font-family: "Ultralight";
-  src: url("/fonts/Cocogoose-Pro-Ultralight-trial.ttf");
-}
-
-@font-face {
-  font-family: "Ultralight-italic";
-  src: url("/fonts/Cocogoose-Pro-Ultralight-Italic-trial.ttf");
-}
-
-@font-face {
-  font-family: "Regular";
-  src: url("/fonts/Cocogoose-Pro-Regular-trial.ttf");
-}
-
-@font-face {
-  font-family: "Letterpress";
-  src: url("/fonts/Cocogoose-Pro-Letterpress-Regular-trial.ttf");
-}
-
-@font-face {
-  font-family: "Bold";
-  src: url("/fonts/Cocogoose-Pro-Bold-trial.ttf");
-}
-
-@font-face {
-  font-family: "Dark";
-  src: url("/fonts/Cocogoose-Pro-Darkmode-trial.ttf");
-}
-
-@font-face {
-  font-family: "Italic";
-  src: url("/fonts/Cocogoose-Pro-Italic-trial.ttf");
-}
-
-@font-face {
-  font-family: "Bold-italic";
-  src: url("/fonts/Cocogoose-Pro-Bold-Italic-trial.ttf");
-}
-
-@font-face {
-  font-family: "Dark-italic";
-  src: url("/fonts/Cocogoose-Pro-Darkmode-Italic-trial.ttf");
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
