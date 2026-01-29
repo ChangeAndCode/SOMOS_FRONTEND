@@ -193,9 +193,9 @@ export default function Sidebar() {
               <path
                 d="M32 128 Q80 64 128 64 Q176 64 224 128 Q176 192 128 192 Q80 192 32 128 Z"
                 stroke="currentColor"
-                stroke-width="16"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 fill="none"
               />
               {/* <!-- iris --> */}
@@ -204,7 +204,7 @@ export default function Sidebar() {
                 cy="128"
                 r="28"
                 stroke="currentColor"
-                stroke-width="16"
+                strokeWidth="16"
                 fill="none"
               />
             </svg>
@@ -270,6 +270,48 @@ export default function Sidebar() {
               />
             </svg>
             Notas
+          </Link>
+          <Link to="/admin/colaboradores">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+            >
+              <rect width="256" height="256" fill="none" />
+              <circle
+                cx="128"
+                cy="120"
+                r="40"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <rect
+                x="40"
+                y="40"
+                width="176"
+                height="176"
+                rx="8"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M57.78,216a72,72,0,0,1,140.44,0"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+            </svg>
+            Colaboradores
           </Link>
         </div>
       </section>

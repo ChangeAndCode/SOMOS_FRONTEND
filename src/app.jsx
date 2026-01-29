@@ -22,6 +22,7 @@ import AdminEvents from './pages/Admin/Events'
 import AdminTestimonies from './pages/Admin/Testimonies'
 import AdminNotes from './pages/Admin/Notes'
 import AdminTransparency from "./pages/Admin/Transparency";
+import AdminCollaborators from "./pages/Admin/Collaborators";
 
 export default function App() {
   return (
@@ -86,6 +87,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <AdminNotes />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/admin/colaboradores"
+            element={
+              <ProtectedRoute>
+                <AdminCollaborators />
               </ProtectedRoute>
             }
           ></Route>

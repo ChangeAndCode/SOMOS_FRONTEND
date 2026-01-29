@@ -11,6 +11,7 @@ export default function DataGridTable({
   data,
   setData,
   route,
+  imageHelpText,
 }) {
   const [view, setView] = useState('grid');
 
@@ -182,8 +183,18 @@ export default function DataGridTable({
         <div className="grid-view">
           {data.map((item) => (
             <div className="gridcard" key={item._id}>
+              {item.logo && (
+                <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                  <img 
+                    src={item.logo} 
+                    alt={item.name || 'Logo'} 
+                    style={{ width: '120px', height: '120px', objectFit: 'contain' }}
+                  />
+                </div>
+              )}
               <h3>{item.name}</h3>
               {item.title ? <h3> {item.title}</h3> : <></>}
+              {item.order !== undefined && <p>Orden: {item.order}</p>}
               {item.startDate && item.endDate && (
                 <>
                   <p>Fecha de inicio: {dateFormatter(item.startDate)}</p>
@@ -336,9 +347,17 @@ export default function DataGridTable({
               <tr key={item._id}>
                 {tableFields.map((field, i) => (
                   <td key={i}>
-                    {field === 'startDate' || field === 'endDate'
-                      ? dateFormatter(item[field])
-                      : item[field]}
+                    {field === 'logo' && item[field] ? (
+                      <img 
+                        src={item[field]} 
+                        alt={item.name || 'Logo'} 
+                        style={{ width: '60px', height: '60px', objectFit: 'contain' }}
+                      />
+                    ) : field === 'startDate' || field === 'endDate' ? (
+                      dateFormatter(item[field])
+                    ) : (
+                      item[field]
+                    )}
                   </td>
                 ))}
                 <td className="actions">
@@ -501,6 +520,7 @@ export default function DataGridTable({
         setData={setData}
         submitText="Enviar"
         formRef={formRef}
+        imageHelpText={imageHelpText}
       ></Form>
       <Form
         show={showEditForm}
@@ -511,8 +531,9 @@ export default function DataGridTable({
         method="PUT"
         editId={itemId}
         setData={setData}
-        submitText="Guardar"
+        submitText="Editar"
         formRef={editRef}
+        imageHelpText={imageHelpText}
       ></Form>
     </div>
   );

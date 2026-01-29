@@ -13,6 +13,7 @@ export default function Form({
   setData,
   submitText = 'Enviar',
   formRef,
+  imageHelpText = 'Selecciona imágenes para agregar',
 }) {
   const [files, setFiles] = useState([]);
   const [deletedImages, setDeletedImages] = useState([]);
@@ -409,7 +410,8 @@ export default function Form({
           )}
 
           <div className="previewImgs">
-            <p>Imágenes ({formData.images?.length || 0})</p>
+            <p style={{ fontWeight: 'bold', marginBottom: '8px' }}>Imágenes ({formData.images?.length || 0})</p>
+            <p style={{ fontSize: '14px', color: '#666', marginBottom: '10px' }}>{imageHelpText}</p>
             {formData.images && formData.images.length > 0 ? (
               <div
                 style={{
