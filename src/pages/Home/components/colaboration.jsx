@@ -17,8 +17,7 @@ export default function Colaboration({ data }) {
       setCollaborators(data);
     } catch (error) {
       console.error('Error fetching collaborators:', error);
-      // Fallback to static data if API fails
-      setCollaborators(data?.logos ?? []);
+      console.error('No se pudieron cargar los colaboradores');
     } finally {
       setLoading(false);
     }
@@ -26,7 +25,7 @@ export default function Colaboration({ data }) {
 
   const logos = collaborators.length > 0 
     ? collaborators.map(c => ({ name: c.name, link: c.logo }))
-    : data?.logos ?? [];
+    : [];
 
   if (loading) {
     return (

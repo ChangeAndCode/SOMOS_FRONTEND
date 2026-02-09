@@ -208,7 +208,7 @@ export default function Sidebar() {
                 fill="none"
               />
             </svg>
-            Tranparencia
+            Transparencia
           </Link>
           <Link to="/admin/notas">
             <svg
