@@ -24,6 +24,7 @@ export default function VolunteerSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(''); // 'success', 'error', or ''
   const [errorMessage, setErrorMessage] = useState('');
+  const [submittedEmail, setSubmittedEmail] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -65,7 +66,7 @@ export default function VolunteerSection() {
       );
 
       // Enviar datos al backend usando fetcher
-      const response = await fetcher('api/sumate/register', {
+      await fetcher('api/sumate/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,6 +74,7 @@ export default function VolunteerSection() {
         body: JSON.stringify(cleanedData),
       });
 
+      setSubmittedEmail(formData.email);
       setSubmitStatus('success');
 
       // Resetear el formulario después del éxito
@@ -217,7 +219,7 @@ export default function VolunteerSection() {
                 </p>
                 <p>
                   Te enviaremos un correo de confirmación a{' '}
-                  {formData.email || 'tu correo electrónico'}.
+                  {submittedEmail || 'tu correo electrónico'}.
                 </p>
               </StatusMessage>
             )}

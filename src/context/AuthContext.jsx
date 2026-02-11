@@ -10,12 +10,13 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      fetchData();
-      setLoading(false);
-    } else {
-      setLoading(false);
-    }
+    const loadUser = async () => {
+      if (token) {
+        await fetchData();   // espera a que termine
+      }
+      setLoading(false);    // ahora sí, cuando ya acabó todo
+    };
+    loadUser();
   }, []);
 
   useEffect(() => {
@@ -31,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       localStorage.removeItem('token');
       setUser(null);
-      return <Navigate to="/login" replace />;
     }
   };
 

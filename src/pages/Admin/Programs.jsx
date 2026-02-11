@@ -55,16 +55,17 @@ export default function Programs() {
   };
 
   return (
-    <>
-      <AdminLayout>
+    <AdminLayout>
+      <section className="admin-section">
+        <h2 className="admin-section-title">Programas</h2>
         <DataGridTable
           data={programs}
           setData={setPrograms}
           fields={fields}
           tableFields={tableFields}
           route={route}
-        ></DataGridTable>
-      </AdminLayout>
-    </>
+        />
+      </section>
+    </AdminLayout>
   );
 }

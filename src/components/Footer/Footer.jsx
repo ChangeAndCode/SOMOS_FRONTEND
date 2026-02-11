@@ -1,10 +1,8 @@
 import FooterData from "../../../data/footer.json";
 import { useTheme } from "../../context/ThemeContext";
 import NavLinks from "../navLinks";
-import images from "../../../data/images.json";
 
 export default function Footer() {
-  const baseUrl = 'images.images.socialMediaIcons.';
   const { darkMode } = useTheme();
   return (
     <>

@@ -35,6 +35,16 @@ export default function Colaboration({ data }) {
     );
   }
 
+  if (!loading && collaborators.length === 0) {
+    return (
+      <section className="relative w-full box-border overflow-hidden bg-white border-gradient h-52 flex items-center justify-center">
+        <p className="text-center text-gray-500 font-semibold">
+          No hay colaboraciones disponibles en este momento
+        </p>
+      </section>
+    );
+  }
+
   return (
     <>
       <section

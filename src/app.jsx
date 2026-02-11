@@ -14,7 +14,7 @@ import Testimonies from './pages/Testimonies/Testimonies';
 import Results from './pages/Results/Results';
 import Sumate from './pages/Sumate/Sumate';
 import DonationSection from './pages/Sumate/components/DonationSection';
-import Voluntareer from './pages/Sumate/components/VolunteerSection';
+import VoluntareerSection from './pages/Sumate/components/VolunteerSection';
 
 import AdminProjects from './pages/Admin/Projects'
 import AdminPrograms from './pages/Admin/Programs'
@@ -40,7 +40,7 @@ export default function App() {
           <Route path='/resultados' element={<Results/>}></Route>
           <Route path='/sumate' element={<Sumate/>}></Route>
           <Route path='/sumate/donacion' element={<DonationSection/>}></Route>
-          <Route path='/sumate/voluntariado' element={<Voluntareer/>}></Route>
+          <Route path='/sumate/voluntariado' element={<VoluntareerSection/>}></Route>
 
           <Route
             path="/admin/proyectos"

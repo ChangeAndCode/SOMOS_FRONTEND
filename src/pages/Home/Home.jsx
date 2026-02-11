@@ -31,13 +31,13 @@ export default function Home() {
             SOMOS Unión
           </h1>
           <p className="text-lg font-semilightitalic m-0">
-            Nuestro objetivo es subsanar el tejido social de nuestra ciudad.{' '}
+            Nuestro objetivo es subsanar el tejido social de nuestra ciudad,
             <br />
-            Mejorando la calidad de vida de las personas.
+            mejorando la calidad de vida de las personas.
           </p>
           <Link
             to="/transparencia"
-            className="mt-[2%] w-fit flex items-center bg-[#8a3677] text-white px-5 py-2.5 rounded-full cursor-pointer text-center transition-colors duration-300 hover:bg-[#59224c] font-bold-italic no-underline"
+            className="hidden mt-[2%] w-fit flex items-center bg-[#8a3677] text-white px-5 py-2.5 rounded-full cursor-pointer text-center transition-colors duration-300 hover:bg-[#59224c] font-bold-italic no-underline"
           >
             Conoce mas
             <img src={images.images.icons['plus.svg']} alt="pluz icon" />

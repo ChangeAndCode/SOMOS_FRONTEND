@@ -39,16 +39,17 @@ export default function Testimonies() {
   const tableFields = ['name', 'message'];
 
   return (
-    <>
-      <AdminLayout>
+    <AdminLayout>
+      <section className="admin-section">
+        <h2 className="admin-section-title">Testimonios</h2>
         <DataGridTable
           data={testimonies}
           setData={setTestimonies}
           route={route}
           fields={fields}
           tableFields={tableFields}
-        ></DataGridTable>
-      </AdminLayout>
-    </>
+        />
+      </section>
+    </AdminLayout>
   );
 }

@@ -59,7 +59,7 @@ export default function Events() {
             <SwiperSlide key={e.id ?? index}>
               <div>
                 <h1 className="py-5 font-extrabold text-center text-[var(--secondary)] text-xl lg:text-2xl">
-                  {e.title}
+                  {e.name}
                 </h1>
                 <div className="grid md:grid-cols-2 md:gap-4 justify-center items-center">
                   <div>{Img}</div>
