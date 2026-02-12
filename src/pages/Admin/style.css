@@ -1,3 +1,20 @@
+.admin-section {
+    background: var(--background);
+    margin: 2rem;
+    padding: 2rem 2rem 2.5rem 2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid var(--dark);
+}
+
+.admin-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+}
+
 .article-flex {
     padding-top: 10vh;
     color: var(--dark);

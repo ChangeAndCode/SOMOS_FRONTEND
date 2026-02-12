@@ -17,8 +17,7 @@ export default function Colaboration({ data }) {
       setCollaborators(data);
     } catch (error) {
       console.error('Error fetching collaborators:', error);
-      // Fallback to static data if API fails
-      setCollaborators(data?.logos ?? []);
+      console.error('No se pudieron cargar los colaboradores');
     } finally {
       setLoading(false);
     }
@@ -26,12 +25,22 @@ export default function Colaboration({ data }) {
 
   const logos = collaborators.length > 0 
     ? collaborators.map(c => ({ name: c.name, link: c.logo }))
-    : data?.logos ?? [];
+    : [];
 
   if (loading) {
     return (
       <section className="relative w-full box-border overflow-hidden bg-white border-gradient h-52 items-center">
         <p className="p-5 text-center font-bold">Cargando...</p>
+      </section>
+    );
+  }
+
+  if (!loading && collaborators.length === 0) {
+    return (
+      <section className="relative w-full box-border overflow-hidden bg-white border-gradient h-52 flex items-center justify-center">
+        <p className="text-center text-gray-500 font-semibold">
+          No hay colaboraciones disponibles en este momento
+        </p>
       </section>
     );
   }

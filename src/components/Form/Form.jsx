@@ -18,7 +18,7 @@ export default function Form({
   const [files, setFiles] = useState([]);
   const [deletedImages, setDeletedImages] = useState([]);
   const [documents, setDocuments] = useState([]);
-  const [deletedDocuments, setDeletedDocuments] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialFormState = fields.reduce((acc, field) => {
     acc[field.name] = '';
@@ -63,10 +63,20 @@ export default function Form({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
     try {
       let body;
       let needsId = method === 'PUT' && !route.endsWith(`/${editId}`);
       let url = `${route}${needsId ? `/${editId}` : ''}`;
+
+      // Validación para transparencia: verificar que haya archivo cuando es POST
+      if (route.includes('transparency') && method === 'POST' && documents.length === 0) {
+        alert('Debes seleccionar un archivo para subir');
+        setIsSubmitting(false);
+        return;
+      }
 
       const form = new FormData();
 
@@ -131,9 +141,10 @@ export default function Form({
       setFiles([]);
       setDocuments([]);
       setDeletedImages([]);
-      setDeletedDocuments([]);
     } catch (error) {
       console.error('Error al enviar el formulario:', error.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -495,7 +506,16 @@ export default function Form({
             />
           </div>
 
-          <button type="submit">{submitText}</button>
+          <button 
+            type="submit" 
+            disabled={isSubmitting}
+            style={{
+              opacity: isSubmitting ? 0.6 : 1,
+              cursor: isSubmitting ? 'not-allowed' : 'pointer'
+            }}
+          >
+            {isSubmitting ? 'Enviando...' : submitText}
+          </button>
         </form>
       )}
     </>

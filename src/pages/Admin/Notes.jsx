@@ -30,7 +30,7 @@ export default function Notes() {
       name: 'content',
       label: 'Contenido',
       type: 'text',
-      placeholder: 'Insgrese descripcion del proyecto',
+      placeholder: 'Ingrese descripcion del proyecto',
       required: true,
     },
   ];
@@ -40,17 +40,17 @@ export default function Notes() {
   const route = 'api/notes';
 
   return (
-    <>
-      <AdminLayout>
-        Bienvenido al penel de notas
+    <AdminLayout>
+      <section className="admin-section">
+        <h2 className="admin-section-title">Notas</h2>
         <DataGridTable
           data={notes}
           setData={setNotes}
           fields={fields}
           tableFields={tableFields}
           route={route}
-        ></DataGridTable>
-      </AdminLayout>
-    </>
+        />
+      </section>
+    </AdminLayout>
   );
 }

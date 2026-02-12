@@ -29,7 +29,7 @@ export default function Events() {
       name: 'description',
       label: 'Descripcion',
       type: 'text',
-      placeholder: 'Insgrese descripcion del proyecto',
+      placeholder: 'Ingrese descripcion del proyecto',
       required: true,
     },
     {
@@ -48,21 +48,22 @@ export default function Events() {
     },
   ];
 
-  const tableFields = ['name', 'location', 'date' /*'status'*/];
+  const tableFields = ['name', 'location', 'startDate' /*'status'*/];
 
   const route = 'api/events';
 
   return (
-    <>
-      <AdminLayout>
+    <AdminLayout>
+      <section className="admin-section">
+        <h2 className="admin-section-title">Eventos</h2>
         <DataGridTable
           data={events}
           setData={setEvents}
           fields={fields}
           tableFields={tableFields}
           route={route}
-        ></DataGridTable>
-      </AdminLayout>
-    </>
+        />
+      </section>
+    </AdminLayout>
   );
 }

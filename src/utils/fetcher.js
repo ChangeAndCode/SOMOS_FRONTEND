@@ -1,5 +1,12 @@
 export async function fetcher(endpoint, options = {}) {
-  const url = import.meta.env.VITE_URL + endpoint;
+  const baseUrl = import.meta.env.VITE_URL;
+  if (!baseUrl) {
+    throw new Error('VITE_URL no está configurado en .env');
+  }
+  // Asegura que baseUrl termine en / y endpoint no empiece con /
+  const normalizedBase = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+  const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+  const url = normalizedBase + normalizedEndpoint;
   try {
     const isFormData = options.body instanceof FormData;
     const defaultHeaders = {

@@ -1,9 +1,7 @@
-import { useAuth } from '../../context/AuthContext';
 import './style.css';
 import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
-  const user = useAuth().user;
 
   return (
     <>
@@ -208,7 +206,7 @@ export default function Sidebar() {
                 fill="none"
               />
             </svg>
-            Tranparencia
+            Transparencia
           </Link>
           <Link to="/admin/notas">
             <svg

@@ -56,16 +56,17 @@ export default function Projects() {
   };
 
   return (
-    <>
-      <AdminLayout>
+    <AdminLayout>
+      <section className="admin-section">
+        <h2 className="admin-section-title">Proyectos</h2>
         <DataGridTable
           data={projects}
           setData={setProjects}
           fields={fields}
           tableFields={tableFields}
           route={route}
-        ></DataGridTable>
-      </AdminLayout>
-    </>
+        />
+      </section>
+    </AdminLayout>
   );
 }

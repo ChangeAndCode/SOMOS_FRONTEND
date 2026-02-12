@@ -1,8 +1,7 @@
 // pages/Transparency/Transparency.jsx
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
-
-const API = import.meta.env.VITE_URL || 'http://localhost:3000/';
+import { fetcher } from '../../utils/fetcher';
 
 const CATEGORIES = [
   { value: '', label: 'Todas' },
@@ -19,15 +18,10 @@ export default function TransparencyPublic() {
   const [items, setItems] = useState([]);
   const [q, setQ] = useState('');
   const [category, setCategory] = useState('');
-  const [year, setYear] = useState('');
+  const [year] = useState('');
   const [sort, setSort] = useState('new');
   const [fileType, setFileType] = useState('');
   const [loading, setLoading] = useState(false);
-
-  // const years = useMemo(() => {
-  //   const y = new Date().getFullYear();
-  //   return ['', y, y - 1, y - 2, y - 3];
-  // }, []);
 
   async function fetchDocs() {
     setLoading(true);
@@ -39,21 +33,14 @@ export default function TransparencyPublic() {
       if (sort) params.set('sort', sort);
       if (fileType) params.set('fileType', fileType);
 
-      const url = `${API}api/transparency?${params.toString()}`;
+      const data = await fetcher(
+        `api/transparency?${params.toString()}`
+      );
 
-      const res = await fetch(url);
-
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-
-      const data = await res.json();
-
-      // El backend devuelve { page, total, items }
       setItems(data.items || []);
     } catch (error) {
       console.error('Error fetching transparency docs:', error);
-      setItems([]); // Fallback a array vacío en caso de error
+      setItems([]);
     } finally {
       setLoading(false);
     }
@@ -70,7 +57,7 @@ export default function TransparencyPublic() {
         <section className="max-w-6xl mx-auto p-4">
           <h1 className="text-2xl mb-3">Transparencia</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}

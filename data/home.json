@@ -1,28 +1,6 @@
 {
   "colaboration": {
-    "title": "Orgullosos colaboradores de:",
-    "logos": [
-      {
-        "name": "coprev-logo",
-        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/coprev.jpg"
-      },
-      {
-        "name": "somos-logo_1",
-        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos.png"
-      },
-      {
-        "name": "red-emprende-logo",
-        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/red-emprende.png"
-      },
-      {
-        "name": "somos-logo_2",
-        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366753/somos/logos/somos.png"
-      },
-      {
-        "name": "redpro-logo",
-        "link": "https://res.cloudinary.com/dintpt52z/image/upload/v1757366751/somos/logos/redpro.png"
-      }
-    ]
+    "title": "Orgullosos colaboradores de:"
   },
   "statistics": [
     {

@@ -34,12 +34,6 @@ export default function AdminTransparency() {
     },
     { name: 'publishedAt', label: 'Fecha de publicación', type: 'date' },
     { name: 'period', label: 'Periodo', type: 'text', placeholder: '2025-Q2' },
-    {
-      name: 'tags',
-      label: 'Tags',
-      type: 'text',
-      placeholder: 'separadas, por, coma',
-    },
     { name: 'description', label: 'Descripción', type: 'textarea' },
     {
       name: 'file',
@@ -68,13 +62,16 @@ export default function AdminTransparency() {
 
   return (
     <AdminLayout>
-      <DataGridTable
-        data={docs}
-        setData={setDocs}
-        fields={fields}
-        tableFields={tableFields}
-        route={route}
-      />
+      <section className="admin-section">
+        <h2 className="admin-section-title">Transparencia</h2>
+        <DataGridTable
+          data={docs}
+          setData={setDocs}
+          fields={fields}
+          tableFields={tableFields}
+          route={route}
+        />
+      </section>
     </AdminLayout>
   );
 }

@@ -42,8 +42,9 @@ export default function Collaborators() {
   };
 
   return (
-    <>
-      <AdminLayout>
+    <AdminLayout>
+      <section className="admin-section">
+        <h2 className="admin-section-title">Colaboradores</h2>
         <DataGridTable
           data={collaborators}
           setData={setCollaborators}
@@ -51,8 +52,8 @@ export default function Collaborators() {
           tableFields={tableFields}
           route={route}
           imageHelpText="📸 Sube el logo de la empresa u organización colaboradora (JPG, PNG o WEBP)"
-        ></DataGridTable>
-      </AdminLayout>
-    </>
+        />
+      </section>
+    </AdminLayout>
   );
 }

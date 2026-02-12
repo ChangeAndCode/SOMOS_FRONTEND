@@ -38,7 +38,7 @@ export default function DataGridTable({
   const [editItem, setEditItem] = useState('');
   useEffect(() => {
     setEditItem(data.find((item) => item._id === itemId));
-  }, [itemId]);
+  }, [itemId, data]);
 
   function handleEdit(id) {
     setItemId(id);
@@ -201,8 +201,8 @@ export default function DataGridTable({
                   <p>Fecha de cierre: {dateFormatter(item.endDate)}</p>
                 </>
               )}
-              {item.date ? (
-                <p>Fecha de inicio: {dateFormatter(item.date)}</p>
+              {item.startDate ? (
+                <p>Fecha de inicio: {dateFormatter(item.startDate)}</p>
               ) : null}
               {item.message ? <p>{item.message}</p> : <></>}
               {item.content ? <p>{item.content}</p> : <></>}
