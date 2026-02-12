@@ -203,7 +203,7 @@ export default function Nav() {
                   Transparencia
                 </Link>
                 <a
-                  href="https://somosunionac.org/"
+                  href="#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-3 py-2 rounded hover:bg-black/5"
